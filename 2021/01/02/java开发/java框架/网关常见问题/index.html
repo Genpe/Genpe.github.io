@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网关常见问题 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="1、网关zuul常见问题 跨域访问问题  token不向后传  老项目中改造路由问题​       2、提高qps和tps 3、使用的技术点 springboot、springcloud 微服务：高内聚、低耦合 二方库：公司内部设计的通用工具 三方库：其他公司设计的通用工具 eureka有效的服务集群只有三个，注册多个eureka服务无效，只会浪费资源。可以在配置url时打乱url顺序可以有效平衡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网关常见问题">
+<meta property="og:url" content="http://genpe.top/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="1、网关zuul常见问题 跨域访问问题  token不向后传  老项目中改造路由问题​       2、提高qps和tps 3、使用的技术点 springboot、springcloud 微服务：高内聚、低耦合 二方库：公司内部设计的通用工具 三方库：其他公司设计的通用工具 eureka有效的服务集群只有三个，注册多个eureka服务无效，只会浪费资源。可以在配置url时打乱url顺序可以有效平衡">
+<meta property="og:locale">
+<meta property="og:image" content="http://genpe.top/2021/Resources/image/image-20201214200958192.png">
+<meta property="og:image" content="http://genpe.top/2021/Resources/image/image-20201210160734259.png">
+<meta property="og:image" content="http://genpe.top/2021/Resources/image/image-20201214193448083.png">
+<meta property="og:image" content="http://genpe.top/2021/Resources/image/image-20201214193247646.png">
+<meta property="og:image" content="http://genpe.top/2021/Resources/image/image-20201214193628019.png">
+<meta property="og:image" content="http://genpe.top/2021/Resources/image/image-20201214200308608.png">
+<meta property="article:published_time" content="2021-01-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-08T06:17:43.505Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="JavaFrame">
+<meta property="article:tag" content="springCloud">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://genpe.top/2021/Resources/image/image-20201214200958192.png">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/java框架/网关常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      网关常见问题
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaFrame/">JavaFrame</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2021-01-02
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="1、网关zuul常见问题"><a href="#1、网关zuul常见问题" class="headerlink" title="1、网关zuul常见问题"></a>1、网关zuul常见问题</h4><ul>
+<li><p>跨域访问问题</p>
+</li>
+<li><p>token不向后传</p>
+</li>
+<li><p>老项目中改造路由问题<br>​    <img src="../../../../../Resources/image/image-20201214200958192.png" alt="image-20201214200958192"></p>
+</li>
+</ul>
+<h4 id="2、提高qps和tps"><a href="#2、提高qps和tps" class="headerlink" title="2、提高qps和tps"></a>2、提高qps和tps</h4><p><img src="../../../../../Resources/image/image-20201210160734259.png" alt="image-20201210160734259"></p>
+<h4 id="3、使用的技术点"><a href="#3、使用的技术点" class="headerlink" title="3、使用的技术点"></a>3、使用的技术点</h4><ul>
+<li>springboot、springcloud</li>
+<li>微服务：高内聚、低耦合</li>
+<li>二方库：公司内部设计的通用工具</li>
+<li>三方库：其他公司设计的通用工具</li>
+<li>eureka有效的服务集群只有三个，注册多个eureka服务无效，只会浪费资源。可以在配置url时打乱url顺序可以有效平衡压力。</li>
+</ul>
+<h4 id="4、网关四种过滤器类型"><a href="#4、网关四种过滤器类型" class="headerlink" title="4、网关四种过滤器类型"></a>4、网关四种过滤器类型</h4><ul>
+<li><p>类型</p>
+<ul>
+<li>pre</li>
+<li>route</li>
+<li>post</li>
+<li>error</li>
+</ul>
+<p><img src="../../../../../Resources/image/image-20201214193448083.png" alt="image-20201214193448083"></p>
+</li>
+<li><p>四种过滤器类型执行流程：<br><img src="../../../../../Resources/image/image-20201214193247646.png" alt="image-20201214193247646"></p>
+</li>
+</ul>
+<h4 id="5、实现一个自定义网关过滤器："><a href="#5、实现一个自定义网关过滤器：" class="headerlink" title="5、实现一个自定义网关过滤器："></a>5、实现一个自定义网关过滤器：</h4><ul>
+<li><p>继承zuulFilter类</p>
+</li>
+<li><p>重写shouldFilter，返回Boolean，设置是否执行过滤，true为执行，flase为不执行</p>
+<ul>
+<li>重写run，实现过滤器具体的业务逻辑</li>
+</ul>
+</li>
+<li><p>重写filterType，返回过滤器类型，设置当前过滤器的类型（pre，route，post，error）</p>
+</li>
+<li><p>重写order，返回int，数字越小越先执行</p>
+<p><img src="../../../../../Resources/image/image-20201214193628019.png" alt="image-20201214193628019"><br><img src="../../../../../Resources/image/image-20201214200308608.png" alt="image-20201214200308608"></p>
+</li>
+</ul>
+<h4 id="6、路由端点"><a href="#6、路由端点" class="headerlink" title="6、路由端点"></a>6、路由端点</h4><ul>
+<li>查看路由端点<br>yum文件中配置：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">management:</span><br><span class="hljs-attr">endpoints:</span><br>  <span class="hljs-attr">web:</span><br>    <span class="hljs-attr">exposure:</span><br>      <span class="hljs-attr">include:</span> <span class="hljs-string">&quot;*&quot;</span><br><span class="hljs-attr">endpoint:</span><br>  <span class="hljs-attr">health:</span><br>    <span class="hljs-comment">##默认是never</span><br>    <span class="hljs-attr">show-details:</span> <span class="hljs-string">ALWAYS</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">routes:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+访问：<a href="http://localhost:port/actuator/routes">http://localhost:port/actuator/routes</a> 可以查看eureka中的路由</li>
+<li>过滤器端点<br>访问：<a href="http://localhost:port/actuator/filters">http://localhost:port/actuator/filters</a> 可以查看默认的和自己定义的过滤器</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年03月08日 14:17</p>
+        <p>原始链接： <a class="post-url" href="/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="网关常见问题">http://genpe.top/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/&title=《网关常见问题》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/&title=《网关常见问题》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《网关常见问题》 — Genpe&url=http://genpe.top/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2021/01/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E7%BD%91%E5%85%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaFrame/" class="color5">JavaFrame</a>
+      
+    <a href="/tags/springCloud/" class="color2">springCloud</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81%E7%BD%91%E5%85%B3zuul%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="post-toc-text">1、网关zuul常见问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81%E6%8F%90%E9%AB%98qps%E5%92%8Ctps"><span class="post-toc-text">2、提高qps和tps</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9"><span class="post-toc-text">3、使用的技术点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81%E7%BD%91%E5%85%B3%E5%9B%9B%E7%A7%8D%E8%BF%87%E6%BB%A4%E5%99%A8%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">4、网关四种过滤器类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E5%85%B3%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%9A"><span class="post-toc-text">5、实现一个自定义网关过滤器：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6%E3%80%81%E8%B7%AF%E7%94%B1%E7%AB%AF%E7%82%B9"><span class="post-toc-text">6、路由端点</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2021/02/02/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/hystrix%E7%AE%80%E4%BB%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          hystrix简介
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/12/27/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1springcloud%E5%90%84%E4%B8%AA%E7%BB%84%E4%BB%B6%E9%9B%86%E6%88%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">微服务springcloud各个组件集成</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

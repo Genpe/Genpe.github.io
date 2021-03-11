@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>springboot搭建eureka服务 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="springboot搭建eureka服务springboot配置阿里云镜像：https:&#x2F;&#x2F;start.aliyun.com 1、单体eureka配置1234567891011121314151617181920212223242526pom文件中添加依赖&lt;dependency&gt;	&lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springboot搭建eureka服务">
+<meta property="og:url" content="http://genpe.top/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="springboot搭建eureka服务springboot配置阿里云镜像：https:&#x2F;&#x2F;start.aliyun.com 1、单体eureka配置1234567891011121314151617181920212223242526pom文件中添加依赖&lt;dependency&gt;	&lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&amp;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-12-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-02T04:10:14.442Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="JavaFrame">
+<meta property="article:tag" content="springCloud">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/java框架/springboot搭建eureka服务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      springboot搭建eureka服务
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaFrame/">JavaFrame</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-12-17
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="springboot搭建eureka服务"><a href="#springboot搭建eureka服务" class="headerlink" title="springboot搭建eureka服务"></a>springboot搭建eureka服务</h3><p>springboot配置阿里云镜像：<a target="_blank" rel="noopener" href="https://start.aliyun.com/">https://start.aliyun.com</a></p>
+<h5 id="1、单体eureka配置"><a href="#1、单体eureka配置" class="headerlink" title="1、单体eureka配置"></a>1、单体eureka配置</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">pom文件中添加依赖</span><br><span class="hljs-string">&lt;dependency&gt;</span><br>	<span class="hljs-string">&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br>	<span class="hljs-string">&lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;</span><br><span class="hljs-string">&lt;/dependency&gt;</span><br><br><span class="hljs-string">有的教程中还引入spring-boot-starter-web，其实不用。因为上面的依赖已经包含了它。在pom中点此依赖进去，一共点4次spring-cloud-netflix-eureka-server，发现web的依赖。</span><br><span class="hljs-string">------------------------------------------------------------------------------------------------------------</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-comment">#是否将自己注册到Eureka Server,默认为true，由于当前就是server，故而设置成false，表明该服务不会向eureka注册自己的信息</span><br>    <span class="hljs-attr">register-with-eureka:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-comment">#是否从eureka server获取注册信息，由于单节点，不需要同步其他节点数据，用false</span><br>    <span class="hljs-attr">fetch-registry:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-comment">#设置服务注册中心的URL，用于client和server端交流</span><br>    <span class="hljs-attr">service-url:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:1995/eureka/</span><br> <span class="hljs-comment"># ps:不想注册，设置成false即可，实例演示结果：注册中心没有实例信息。找控制台204信息也没有找到。</span><br> <span class="hljs-attr">spring:</span> <br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">service-registry:</span><br>      <span class="hljs-attr">auto-registration:</span><br>        <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span><br><span class="hljs-string">------------------------------------------------------------------------------------------------------------</span> <br><span class="hljs-string">启动类上添加此注解标识该服务为配置中心</span><br><span class="hljs-string">@EnableEurekaServer</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="2、集群eureka配置"><a href="#2、集群eureka配置" class="headerlink" title="2、集群eureka配置"></a>2、集群eureka配置</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 共享配置部分</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-comment">#是否将自己注册到Eureka Server,默认为true，由于当前就是server，故而设置成false，表明该服务不会向eureka注册自己的信息</span><br>    <span class="hljs-attr">register-with-eureka:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-comment">#是否从eureka server获取注册信息，由于单节点，不需要同步其他节点数据，用false</span><br>    <span class="hljs-attr">fetch-registry:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-comment">#设置服务注册中心的URL，用于client和server端交流</span><br>    <span class="hljs-attr">service-url:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:1995/eureka/,http://localhost:1996/eureka/,http://localhost:1997/eureka/,http://localhost:1998/eureka/</span><br>      <br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">eureka</span><br><br><span class="hljs-comment"># 使用---将yml文件分成多个部分，相当于多个yml文件组合配置，第一个---之前的部分被后面的所有用---隔开的配置共享</span><br><span class="hljs-meta">---</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">eureka-1995</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">1995</span><br><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">profiles:</span> <span class="hljs-number">1995</span><br><br><span class="hljs-meta">---</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">eureka-1996</span><br><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">1996</span><br><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">profiles:</span> <span class="hljs-number">1996</span><br><br><span class="hljs-meta">---</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">eureka-1997</span><br><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">1997</span><br><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">profiles:</span> <span class="hljs-number">1997</span><br><br><span class="hljs-meta">---</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">eureka-1998</span><br><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">1998</span><br><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">profiles:</span> <span class="hljs-number">1998</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="3、-eureka自我保护："><a href="#3、-eureka自我保护：" class="headerlink" title="3、 eureka自我保护："></a>3、 eureka自我保护：</h5><p>自我保护模式正是一种针对网络异常波动的安全保护措施，使用自我保护模式能使Eureka集群更加的健壮、稳定的运行。默认情况下，如果在15分钟内超过85%的客户端节点都没有正常的心跳，那么Eureka就认为客户端与注册中心出现了网络故障(比如网络故障或频繁的启动关闭客户端)，Eureka Server自动进入自我保护模式。不再剔除任何服务，当网络故障恢复后，该节点自动退出自我保护模式。</p>
+<ul>
+<li>eureka如果不配置eureka.server.enable-self-preservation为false，则默认开启自我保护机制。</li>
+<li>当心跳检测有超过一定阈值的结点停止心跳时，eureka会触发自我保护机制。</li>
+<li>自我保护机制开启后，停止心跳的服务不会被eureka直接剔除，这样会防止因为网络故障导致的心跳检测不到，但是结点依旧运行正常的情况下结点被剔除。</li>
+<li>eureka依旧可以正常注册新的服务，但是不会同步到心跳停止的服务上去。</li>
+<li>在间隔一段时间后，eureka会重新向停止心跳的服务发送心跳检测，如果恢复正常会同步注册表相关的信息。</li>
+</ul>
+<h5 id="4、eureka优化配置"><a href="#4、eureka优化配置" class="headerlink" title="4、eureka优化配置"></a>4、eureka优化配置</h5><h6 id="4-1-server端优化"><a href="#4-1-server端优化" class="headerlink" title="4.1 server端优化"></a>4.1 server端优化</h6><ul>
+<li><p>通过设置自我保护优化</p>
+<ul>
+<li>如果服务少的话不开启自我保护，因为服务太少，如果只是故障两三个节点也会占比很大，很容易达到eureka自我保护阈值。</li>
+<li>如果服务多的话可以开启自我保护，这样可以有效防止网络波动带来的大面积心跳检测失败。</li>
+<li>开启true关闭false：<code>enable-self-preservation: false</code></li>
+<li>自我保护阈值设定：<code>renewal-percent-threshold: 0.85</code></li>
+</ul>
+</li>
+<li><p>剔除服务时间间隔</p>
+<ul>
+<li>清理无效节点,默认60*1000毫秒,即60秒</li>
+<li>自定义无效服务剔除间隔：eviction-interval-timer-in-ms: 1000</li>
+</ul>
+</li>
+<li><p>关闭从readOnly读注册表</p>
+<ul>
+<li>use-read-only-response-cache: false</li>
+</ul>
+</li>
+<li><p>readWrite 和 readOnly 同步时间间隔。</p>
+<ul>
+<li>response-cache-update-interval-ms: 1000</li>
+</ul>
+</li>
+</ul>
+<h6 id="4-2-client端优化"><a href="#4-2-client端优化" class="headerlink" title="4.2 client端优化"></a>4.2 client端优化</h6><ul>
+<li>拉取注册表间隔<ul>
+<li>表示eureka client间隔多久去拉取服务器注册信息,默认为30秒</li>
+<li>可以自定义注册表拉取间隔：registry-fetch-interval-seconds: 5</li>
+</ul>
+</li>
+<li>心跳续约间隔<ul>
+<li>eureka客户端需要多长时间发送心跳给eureka服务器，表明他仍然或者，默认30秒</li>
+<li>自定义心跳续约间隔：lease-renewal-interval-in-seconds: 10</li>
+</ul>
+</li>
+<li>心跳过期时间<ul>
+<li>eureka服务器在接受到实力的最后一次发出的心跳后，需要等待多久才可以将此实力删除</li>
+<li>自定义心跳过期时间：lease-expiration-duration-in-seconds: 10</li>
+</ul>
+</li>
+</ul>
+<h6 id="4-3-集群搭建"><a href="#4-3-集群搭建" class="headerlink" title="4.3 集群搭建"></a>4.3 集群搭建</h6><ul>
+<li>service-url配置url时，将所有url打乱配置，即不同的server中的url配置顺序不要一样，这样可以让节点被均匀访问。</li>
+</ul>
+<h5 id="5、分区"><a href="#5、分区" class="headerlink" title="5、分区"></a>5、分区</h5><p>eureka提供了region和zone两个概念来进行分区，这两个概念均来自于亚马逊的AWS：</p>
+<ul>
+<li>region：可以简单理解为地理上的分区，比如亚洲地区，或者华北地区，再或者北京等等，没有具体大小的限制。根据项目具体的情况，可以自行合理划分region。</li>
+<li>zone：可以简单理解为region内的具体机房，比如说region划分为北京，然后北京有两个机房，就可以在此region之下划分出zone1,zone2两个zone。</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年03月02日 12:10</p>
+        <p>原始链接： <a class="post-url" href="/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/" title="springboot搭建eureka服务">http://genpe.top/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/&title=《springboot搭建eureka服务》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/&title=《springboot搭建eureka服务》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《springboot搭建eureka服务》 — Genpe&url=http://genpe.top/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/12/17/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaFrame/" class="color5">JavaFrame</a>
+      
+    <a href="/tags/springCloud/" class="color2">springCloud</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#springboot%E6%90%AD%E5%BB%BAeureka%E6%9C%8D%E5%8A%A1"><span class="post-toc-text">springboot搭建eureka服务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1%E3%80%81%E5%8D%95%E4%BD%93eureka%E9%85%8D%E7%BD%AE"><span class="post-toc-text">1、单体eureka配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2%E3%80%81%E9%9B%86%E7%BE%A4eureka%E9%85%8D%E7%BD%AE"><span class="post-toc-text">2、集群eureka配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3%E3%80%81-eureka%E8%87%AA%E6%88%91%E4%BF%9D%E6%8A%A4%EF%BC%9A"><span class="post-toc-text">3、 eureka自我保护：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4%E3%80%81eureka%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="post-toc-text">4、eureka优化配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-1-server%E7%AB%AF%E4%BC%98%E5%8C%96"><span class="post-toc-text">4.1 server端优化</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-2-client%E7%AB%AF%E4%BC%98%E5%8C%96"><span class="post-toc-text">4.2 client端优化</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-3-%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA"><span class="post-toc-text">4.3 集群搭建</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5%E3%80%81%E5%88%86%E5%8C%BA"><span class="post-toc-text">5、分区</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/12/27/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/%E5%BE%AE%E6%9C%8D%E5%8A%A1springcloud%E5%90%84%E4%B8%AA%E7%BB%84%E4%BB%B6%E9%9B%86%E6%88%90/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          微服务springcloud各个组件集成
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/12/12/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/redis%E7%AE%80%E4%BB%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">redis简介</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

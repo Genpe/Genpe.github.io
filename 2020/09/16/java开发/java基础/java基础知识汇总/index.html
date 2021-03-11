@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java基础知识汇总 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="一、java主要知识点  java基础   Java框架   数据库   消息队列 网关 容器 搜索引擎   二、知识点简介1、java基础   知识点    java基础   容器   并发   I&#x2F;O   JVM   java8   设计模式   网络编程   2、Java框架   框架 作用    Spring bean对象管理容器   SpringMVC controller对象管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础知识汇总">
+<meta property="og:url" content="http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="一、java主要知识点  java基础   Java框架   数据库   消息队列 网关 容器 搜索引擎   二、知识点简介1、java基础   知识点    java基础   容器   并发   I&#x2F;O   JVM   java8   设计模式   网络编程   2、Java框架   框架 作用    Spring bean对象管理容器   SpringMVC controller对象管理">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-09-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-18T11:26:39.086Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="JavaBase">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/java基础/java基础知识汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java基础知识汇总
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaBase/">JavaBase</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-09-16
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <a id="more"></a>
+
+
+<h3 id="一、java主要知识点"><a href="#一、java主要知识点" class="headerlink" title="一、java主要知识点"></a>一、java主要知识点</h3><blockquote>
+<ul>
+<li>java基础  </li>
+<li>Java框架  </li>
+<li>数据库  </li>
+<li>消息队列</li>
+<li>网关</li>
+<li>容器</li>
+<li>搜索引擎</li>
+</ul>
+</blockquote>
+<h3 id="二、知识点简介"><a href="#二、知识点简介" class="headerlink" title="二、知识点简介"></a>二、知识点简介</h3><h4 id="1、java基础"><a href="#1、java基础" class="headerlink" title="1、java基础"></a>1、java基础</h4><table>
+<thead>
+<tr>
+<th>知识点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>java基础</td>
+</tr>
+<tr>
+<td>容器</td>
+</tr>
+<tr>
+<td>并发</td>
+</tr>
+<tr>
+<td>I/O</td>
+</tr>
+<tr>
+<td>JVM</td>
+</tr>
+<tr>
+<td>java8</td>
+</tr>
+<tr>
+<td>设计模式</td>
+</tr>
+<tr>
+<td>网络编程</td>
+</tr>
+</tbody></table>
+<h4 id="2、Java框架"><a href="#2、Java框架" class="headerlink" title="2、Java框架"></a>2、Java框架</h4><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Spring</td>
+<td>bean对象管理容器</td>
+</tr>
+<tr>
+<td>SpringMVC</td>
+<td>controller对象管理容器</td>
+</tr>
+<tr>
+<td>Mybatis</td>
+<td>orm型关系数据库操作框架</td>
+</tr>
+<tr>
+<td>SpringBoot</td>
+<td>简化配置，集成了许多明星框架，让框架组合更简易</td>
+</tr>
+<tr>
+<td>SpringCloud</td>
+<td>分布式微服务开发框架，采用rest风格通信</td>
+</tr>
+<tr>
+<td>Dubbo</td>
+<td>分布式微服务开发框架，采用rpc风格通信</td>
+</tr>
+<tr>
+<td>Netty</td>
+<td>Netty是一款基于NIO（Nonblocking I/O，非阻塞IO）开发的网络通信框架</td>
+</tr>
+</tbody></table>
+<h4 id="3、数据库"><a href="#3、数据库" class="headerlink" title="3、数据库"></a>3、数据库</h4><table>  
+    <tr>
+        <td>数据库类型</td>
+        <td>数据库</td>
+        <td>作用</td>
+        <td>总括</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Sql</td>
+        <td>MySql</td>
+        <td>中小型数据库（免费）</td>
+        <td rowspan="2">关系型数据库</td>
+    </tr>
+    <tr>
+        <td>Oracle</td>
+        <td>大型数据库（收费）</td>
+    </tr>
+    <tr>
+        <td rowspan="3">NoSql</td>
+        <td>Redis</td>
+        <td>内存中缓存，定期将缓存数据存入磁盘（宕机后可恢复）</td>
+        <td rowspan="3">非关系型缓存数据库</td>
+    </tr>
+    <tr>
+        <td>Memcache</td>
+        <td>在内存中缓存（宕机后不可恢复）</td>
+    </tr>
+    <tr>
+        <td>MongoDB</td>
+        <td>以文件方式缓存，存储在磁盘中</td>
+    </tr>
+</table>  
+
+<h4 id="4、消息队列"><a href="#4、消息队列" class="headerlink" title="4、消息队列"></a>4、消息队列</h4><table>
+<thead>
+<tr>
+<th>消息队列</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ActiveMQ</td>
+<td>老牌的消息队列，使用Java语言编写。对JMS支持最好，采用多线程并发，资源消耗比较大。</td>
+</tr>
+<tr>
+<td>RabbitMQ</td>
+<td>结合erlang语言本身的并发优势，性能较好，社区活跃度也比较高，但是不利于做二次开发和维护。不过，RabbitMQ的社区十分活跃，可以解决开发过程中遇到的bug。</td>
+</tr>
+<tr>
+<td>Kafka</td>
+<td>Kafka主要特点是基于Pull的模式来处理消息消费，追求高吞吐量，一开始的目的就是用于日志收集和传输，适合产生大量数据的互联网服务的数据收集业务。</td>
+</tr>
+<tr>
+<td>RockerMQ</td>
+<td>天生为金融互联网领域而生，对于可靠性要求很高的场景，尤其是电商里面的订单扣款，以及业务削峰，在大量交易涌入时，后端可能无法及时处理的情况。</td>
+</tr>
+</tbody></table>
+<h4 id="5、网关"><a href="#5、网关" class="headerlink" title="5、网关"></a>5、网关</h4><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Apache</td>
+<td>Web服务器</td>
+</tr>
+<tr>
+<td>Nginx</td>
+<td>web服务器</td>
+</tr>
+<tr>
+<td>Tomcat</td>
+<td>web应用服务器</td>
+</tr>
+<tr>
+<td>Zookeeper</td>
+<td>微服务注册中心，一般与dubbo联合使用</td>
+</tr>
+<tr>
+<td>CDN</td>
+<td>内容分发器</td>
+</tr>
+<tr>
+<td>LVS</td>
+<td>负载均衡</td>
+</tr>
+</tbody></table>
+<h4 id="6、容器"><a href="#6、容器" class="headerlink" title="6、容器"></a>6、容器</h4><table>
+<thead>
+<tr>
+<th>容器</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Kubernetes(K8S)</td>
+<td>是自动化容器操作的开源平台，这些操作包括部署，调度和节点集群间扩展</td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>Docker 是一个开源的应用容器引擎，可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</td>
+</tr>
+</tbody></table>
+<h4 id="7、搜索引擎"><a href="#7、搜索引擎" class="headerlink" title="7、搜索引擎"></a>7、搜索引擎</h4><table>
+<thead>
+<tr>
+<th>引擎</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ElasticSearch</td>
+<td>Elasticsearch是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口。</td>
+</tr>
+<tr>
+<td>Logstash</td>
+<td>Logstash是一个开源数据收集引擎，具有实时管道功能。Logstash可以动态地将来自不同数据源的数据统一起来，并将数据标准化到你所选择的目的地。</td>
+</tr>
+<tr>
+<td>Lucene</td>
+<td>是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。</td>
+</tr>
+<tr>
+<td>Kibana</td>
+<td>Kibana是一个针对Elasticsearch的开源分析及可视化平台，用来搜索、查看交互存储在Elasticsearch索引中的数据。使用Kibana，可以通过各种图表进行高级数据分析及展示。</td>
+</tr>
+</tbody></table>
+<h3 id="三、名词解释"><a href="#三、名词解释" class="headerlink" title="三、名词解释"></a>三、名词解释</h3><ul>
+<li><p>jvm相关  </p>
+<ul>
+<li><p><code>JIT</code><br>JIT 是 just in time 的缩写, 也就是即时编译编译器。使用即时编译器技术，能够加速 Java 程序的执行速度。</p>
+</li>
+<li><p><code>STW</code><br>Java中Stop-The-World机制简称STW，是在执行垃圾收集算法时，Java应用程序的其他所有线程都被挂起（除了垃圾收集帮助器之外）。Java中一种全局暂停现象，全局停顿，所有Java代码停止，native代码可以执行，但不能与JVM交互；这些现象多半是由于gc引起。</p>
+</li>
+</ul>
+</li>
+<li><p>javaWeb相关</p>
+<ul>
+<li><p><code>JSP</code><br>JSP（全称JavaServer Pages）是由Sun Microsystems公司主导创建的一种动态网页技术标准。JSP部署于网络服务器上，可以响应客户端发送的请求，并根据请求内容动态地生成HTML、XML或其他格式文档的Web网页，然后返回给请求者。JSP技术以Java语言作为脚本语言，为用户的HTTP请求提供服务，并能与服务器上的其它Java程序共同处理复杂的业务需求。<br>JSP将Java代码和特定变动内容嵌入到静态的页面中，实现以静态页面为模板，动态生成其中的部分内容。JSP引入了被称为“JSP动作”的XML标签，用来调用内建功能。另外，可以创建JSP标签库，然后像使用标准HTML或XML标签一样使用它们。标签库能增强功能和服务器性能，而且不受跨平台问题的限制。JSP文件在运行时会被其编译器转换成更原始的Servlet代码。JSP编译器可以把JSP文件编译成用Java代码写的Servlet，然后再由Java编译器来编译成能快速执行的二进制机器码，也可以直接编译成二进制码。<br>JSP程序与CGI程序有着相似的功能，但和CGI程序相比，JSP程序有如下优势：  </p>
+<ul>
+<li>性能更加优越，因为JSP可以直接在HTML网页中动态嵌入元素而不需要单独CGI文件。  </li>
+<li>服务器调用的是已经编译好的JSP文件，而不像CGI/Perl那样必须先载入解释目标脚本。  </li>
+<li>JSP 基于Java Servlet API，因此，JSP拥有各种强大的企业级Java API，JDBC，JNDI，EJB，JAXP等等。  </li>
+<li>JSP页面可以与处理业务逻辑的 Servlet 一起使用，这种模式被Java servle模板引擎所支持。  </li>
+<li>最后，JSP是Java EE不可或缺的一部分，是一个完整的企业级应用平台。这意味着JSP可以用最简单的方式来实现最复杂的应用。  </li>
+</ul>
+</li>
+<li><p><code>SSH</code><br>SSH 通常指的是 Struts2 做控制器(controller)，spring 管理各层的组件，hibernate 负责持久化层。</p>
+</li>
+<li><p><code>SSM</code><br>SSM 则指的是 SpringMVC 做控制器(controller)，Spring 管理各层的组件，MyBatis 负责持久化层。</p>
+</li>
+<li><p><code>EJB</code><br>EJB是sun的JavaEE服务器端组件模型，设计目标与核心应用是部署分布式应用程序。简单来说就是把已经编写好的程序(即:类)打包放在服务器上执行。凭借java跨平台的优势，用EJB技术部署的分布式系统可以不限于特定的平台。EJB (Enterprise JavaBean)是J2EE(javaEE)的一部分，定义了一个用于开发基于组件的企业多重应用程序的标准。其特点包括网络服务支持和核心开发工具(SDK)。 在J2EE里，Enterprise Java Beans(EJB)称为Java 企业Bean，是Java的核心代码，分别是会话Bean(Session Bean)，实体Bean(Entity Bean)和消息驱动Bean(MessageDriven Bean)。在EJB3.0推出以后，实体Bean被单独分了出来，形成了新的规范JPA。<br>EJB是的Enterprise Java Beans技术的简称, 又被称为企业Java Beans。这种技术最早是由美国计算公司研发出来的。EJB技术的诞生标志着Java Beans的运行正式从客户端领域扩展到服务器领域。在电子商务领域运用EJB技术可以简化应用系统的开发, 这是由该技术的结构和特点所决定的。</p>
+</li>
+<li><p><code>POJO</code><br>按照Martin Fowler的解释是“Plain Old Java Object”，从字面上翻译为“纯洁老式的java对象”，但大家都使用“简单java对象”来称呼它。POJO的内在含义是指那些没有从任何类继承、也没有实现任何接口，更没有被其它框架侵入的java对象。<br>POJO（Plain Ordinary Java Object）简单的Java对象，实际就是普通JavaBeans，使用POJO名称是为了避免和EJB混淆起来, 而且简称比较直接. 其中有一些属性及其getter setter方法的类,没有业务逻辑，有时可以作为VO(value -object)或dto(Data Transform Object)来使用.当然,如果你有一个简单的运算属性也是可以的,但不允许有业务方法,也不能携带有connection之类的方法。<br>pojo和javabean的比较  </p>
+<ul>
+<li>pojo的格式是用于数据的临时传递，它只能装载数据， 作为数据存储的载体，而不具有业务逻辑处理的能力。</li>
+<li>而javabean虽然数据的获取与pojo一样，但是javabean当中可以有其它的方法。</li>
+<li>JavaBean 是一种JAVA语言写成的可重用组件。它的方法命名，构造及行为必须符合特定的约定：</li>
+<li>这个类必须有一个公共的缺省构造函数。</li>
+<li>这个类的属性使用getter和setter来访问，其他方法遵从标准命名规范。</li>
+<li>这个类应是可序列化的。</li>
+</ul>
+</li>
+<li><p><code>DAO</code><br>DAO（data access objects）DAO是数据访问对象，DAO一般有接口和该接口的实现类，接口用于规范实现类。实现类一般用于操作数据库，如对数据库进行修改、添加、删除等操作，一般直接调用公共类DAO。 </p>
+</li>
+<li><p><code>JDBC</code><br>JDBC（Java DataBase Connectivity）是Java和数据库之间的一个桥梁，是一个规范而不是一个实现，能够执行SQL语句。它由一组用Java语言编写的类和接口组成。各种不同类型的数据库都有相应的实现，</p>
+</li>
+<li><p><code>JTA</code><br>JTA，即Java Transaction API，JTA允许应用程序执行分布式事务处理——在两个或多个网络计算机资源上访问并且更新数据。JDBC驱动程序的JTA支持极大地增强了数据访问能力。<br>JTA（Java Transaction API即Java事务API）和它的同胞JTS（Java Transaction Service即Java事务服务），为J2EE平台提供了分布式事务服务。一个分布式事务（distributed transaction）包括一个事务管理器（transaction manager）和一个或多个资源管理器(resource manager)。我们可以将资源管理器看做任意类型的持久化数据存储；事务管理器承担着所有事务参与单元的协调与控制。JTA 事务有效的屏蔽了底层事务资源，使应用可以以透明的方式参入到事务处理中；但是与本地事务相比，XA 协议的系统开销大，在系统开发过程中应慎重考虑是否确实需要分布式事务。若确实需要分布式事务以协调多个事务资源，则应实现和配置所支持 XA 协议的事务资源，如 JMS、JDBC 数据库连接池等。</p>
+</li>
+<li><p><code>ORM</code><br>对象关系映射（Object Relational Mapping，简称ORM）模式是一种为了解决面向对象与关系数据库（如mysql数据库）存在的互不匹配的现象的技术。简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将程序中的对象自动持久化到关系数据库中。那么，到底如何实现持久化呢？一种简单的方案是采用硬编码方式，为每一种可能的数据库访问操作提供单独的方法。<br>这种方案存在以下不足： </p>
+<ul>
+<li>持久化层缺乏弹性。一旦出现业务需求的变更，就必须修改持久化层的接口 </li>
+<li>持久化层同时与域模型与关系数据库模型绑定，不管域模型还是关系数据库模型发生变化，毒药修改持久化曾的相关程序代码，增加了软件的维护难度。 </li>
+</ul>
+</li>
+<li><p><code>Servlet</code><br>Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。使用 Servlet，您可以收集来自网页表单的用户输入，呈现来自数据库或者其他源的记录，还可以动态创建网页。Java Servlet 通常情况下与使用 CGI（Common Gateway Interface，公共网关接口）实现的程序可以达到异曲同工的效果。但是相比于 CGI，Servlet 有以下几点优势：</p>
+<ul>
+<li>性能明显更好。</li>
+<li>Servlet 在 Web 服务器的地址空间内执行。这样它就没有必要再创建一个单独的进程来处理每个客户端请求。</li>
+<li>Servlet 是独立于平台的，因为它们是用 Java 编写的。</li>
+<li>服务器上的 Java 安全管理器执行了一系列限制，以保护服务器计算机上的资源。因此，Servlet 是可信的。</li>
+<li>Java 类库的全部功能对 Servlet 来说都是可用的。它可以通过 sockets 和 RMI 机制与 applets、数据库或其他软件进行交互。</li>
+</ul>
+</li>
+<li><p><code>JavaBean</code><br>JavaBean是使用Java语言开发的一个可重用的组件，在JSP的开发中可以使用JavaBean减少重复代码，使整个JSP代码的开发更简洁。JSP搭配JavaBean来使用，有以下的优点：</p>
+<ul>
+<li>可将HTML和Java代码分离，这主要是为了日后维护的方便。如果把所有的程序代码（HTML和Java）写到JSP页面中，会使整个程序代码又多又复杂，造成日后维护上的困难。</li>
+<li>可利用JavaBean的优点。将日常用到的程序写成JavaBean组件，当在JSP要使用时，只要调用JavaBean组件来执行用户所要的功能，不用再重复写相同的程序，这样以来也可以节省开发所需的时间。<br>在JSP中如果要应用JSP提供的Javabean的标签来操作简单类的话，则此类必须满足如下的开发要求：</li>
+<li>所有的类必须放在一个包中，在WEB中没有包的是不存在的；</li>
+<li>所有的类必须声明为public class，这样才能够被外部所访问；</li>
+<li>类中所有的属性都必须封装，即：使用private声明；</li>
+<li>封装的属性如果需要被外部所操作，则必须编写对应的setter、getter方法；</li>
+<li>一个JavaBean中至少存在一个无参构造方法，此为JSP中的标签所使用。</li>
+</ul>
+</li>
+<li><p><code>MVC</code><br>MVC是一种编程架构，它强制性的使应用程序的输入、处理和输出分开。使用MVC应用程序被分成三个核心部件：模型、视图、控制器。它们各自处理自己的任务。<br><code>M：</code>Model（模型），业务逻辑。<br><code>V：</code>View（视图），用户界面。<br><code>C：</code>Controller（控制器），协调业务逻辑(M)和用户界面(V)。</p>
+</li>
+<li><p><code>Spring</code><br>Spring提供了管理业务对象的一致方法，并且鼓励了注入对接口编程而不是对类编程的良好习惯。Spring的架构基础是基于使用JavaBean属性的Inversion of Control容器。然而，这仅仅是完整图景中的一部分：Spring在使用IoC容器作为构建完关注所有架构层的完整解决方案方面是独一无二的。<br>Spring提供了唯一的数据访问抽象，包括简单和有效率的JDBC框架，极大的改进了效率并且减少了可能的错误。Spring的数据访问架构还集成了Hibernate和其他O/R mapping解决方案。Spring还提供了唯一的事务管理抽象，它能够在各种底层事务管理技术，例如JTA或者JDBC事务提供一个一致的编程模型。Spring提供了一个用标准Java语言编写的AOP框架，它给POJOs提供了声明式的事务管理和其他企业事务–如果你需要–还能实现你自己的aspects。这个框架足够强大，使得应用程序能够抛开EJB的复杂性，同时享受着和传统EJB相关的关键服务。Spring还提供了可以和IoC容器集成的强大而灵活的MVC Web框架。</p>
+</li>
+<li><p><code>Struts</code><br>struts是基于请求的MVC设计模式的Web应用程序框架<br>在浏览器发出请求，服务器接受处理请求。【还有gsf等，基于事件的MVC事件】<br>现在最近的是struts 2.5 只支持jdk8以上，但是jdk8有一部分还不支持以前的技术，还没有全面更新。所以用2.3.24就可以了。</p>
+</li>
+<li><p><code>Hibernate</code><br>Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序实用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
+</li>
+<li><p><code>SpringMVC</code><br>SpringMVC是一种基于Spring实现了Web MVC设计模式的请求驱动类型的轻量级Web框架，使用了MVC的架构模式思想，将Web层进行指责解耦，并管理应用所需的生命周期，为简化日常开发，提供了很大便利。<br>SpringMVC提供了总开关DispatcherServlet;请求处理映射器（Handler Mapping）和处理适配器（Handler Adapter），视图解析器（View Resolver）进行视图管理;动作处理器Controller接口（包含ModelAndView，以及处理请求响应对象请求和响应），配置灵活，支持文件上传，数据简单转化等强大功能。</p>
+</li>
+<li><p><code>MyBatis</code><br>MyBatis 是一款由 Java 编写的持久层框架，它支持定制化 SQL、存储过程以及高级映射，并且封装了 JDBC 操作的很多细节，使开发者只需要关注 SQL 语句本身，不再去管注册驱动，创建连接等过程。</p>
+</li>
+</ul>
+</li>
+<li><p>分布式相关  </p>
+<ul>
+<li><p><code>分布式</code><br>系统中的多个模块在不同服务器上部署，即可称为分布式系统，如Tomcat和数据库分别部署在不同的服务器上，或两个相同功能的Tomcat分别部署在不同服务器上。  </p>
+</li>
+<li><p><code>高可用</code><br>系统中部分节点失效时，其他节点能够接替它继续提供服务，则可认为系统具有高可用性。  </p>
+</li>
+<li><p><code>集群</code><br>一个特定领域的软件部署在多台服务器上并作为一个整体提供一类服务，这个整体称为集群。如Zookeeper中的Master和Slave分别部署在多台服务器上，共同组成一个整体提供集中配置服务。在常见的集群中，客户端往往能够连接任意一个节点获得服务，并且当集群中一个节点掉线时，其他节点往往能够自动的接替它继续提供服务，这时候说明集群具有高可用性。 </p>
+</li>
+<li><p><code>负载均衡</code><br>请求发送到系统时，通过某些方式把请求均匀分发到多个节点上，使系统中每个节点能够均匀的处理请求负载，则可认为系统是负载均衡的。  </p>
+</li>
+<li><p><code>正向代理和反向代理</code><br>系统内部要访问外部网络时，统一通过一个代理服务器把请求转发出去，在外部网络看来就是代理服务器发起的访问，此时代理服务器实现的是正向代理；当外部请求进入系统时，代理服务器把该请求转发到系统中的某台服务器上，对外部请求来说，与之交互的只有代理服务器，此时代理服务器实现的是反向代理。简单来说，正向代理是代理服务器代替系统内部来访问外部网络的过程，反向代理是外部请求访问系统时通过代理服务器转发到内部服务器的过程。</p>
+</li>
+<li><p><code>SOA</code><br>SOA 全称是: Service Oriented Architecture，中文释义为 “面向服务的架构”它是一种设计理念，其中包含多个服务， 服务之间通过相互依赖最终提供一系列完整的功能。各个服务通常以独立的形式部署运行，服务之间 通过网络进行调用。</p>
+</li>
+<li><p><code>ESB</code><br>ESB(企业服务总线),简单来说 ESB 就是一根管道，用来连接各个服务节点。ESB的存在是为了集成基于不同协议的不同服务，ESB 做了消息的转化、解释以及路由的工作，以此来让不同的服务互联互通。</p>
+</li>
+<li><p><code>微服务</code><br>微服务架构和 SOA 架构非常类似,微服务只是的 SOA 升华，只不过微服务架构强调的是“业务需要彻底的组件化及服务化”，原单个业务系统会被拆分为多个可以独立开发、设计、部署运行的小应用。这些小应用间通过服务化完成交互和集成。 </p>
+</li>
+<li><p><code>CAP</code><br>CAP原则又称CAP定理，指的是在一个分布式系统中，一致性（Consistency）、可用性（Availability）、分区容错性（Partition tolerance）。CAP 原则指的是，这三个要素最多只能同时实现两点，不可能三者兼顾。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年11月18日 19:26</p>
+        <p>原始链接： <a class="post-url" href="/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" title="java基础知识汇总">http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/&title=《java基础知识汇总》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/&title=《java基础知识汇总》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java基础知识汇总》 — Genpe&url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaBase/" class="color4">JavaBase</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81java%E4%B8%BB%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="post-toc-text">一、java主要知识点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8C%E3%80%81%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AE%80%E4%BB%8B"><span class="post-toc-text">二、知识点简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81java%E5%9F%BA%E7%A1%80"><span class="post-toc-text">1、java基础</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81Java%E6%A1%86%E6%9E%B6"><span class="post-toc-text">2、Java框架</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">3、数据库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="post-toc-text">4、消息队列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5%E3%80%81%E7%BD%91%E5%85%B3"><span class="post-toc-text">5、网关</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6%E3%80%81%E5%AE%B9%E5%99%A8"><span class="post-toc-text">6、容器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7%E3%80%81%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E"><span class="post-toc-text">7、搜索引擎</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%89%E3%80%81%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="post-toc-text">三、名词解释</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/SSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          SSM项目搭建流程
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/09/10/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">多线程高并发</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

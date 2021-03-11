@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vue环境配置和使用 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="1、vue 简介Vue.js是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。Vue.js 自身不是一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue环境配置和使用">
+<meta property="og:url" content="http://genpe.top/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="1、vue 简介Vue.js是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。Vue.js 自身不是一">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-10-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-25T02:23:29.271Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="JavaWeb">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/javaWeb/vue环境配置和使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      vue环境配置和使用
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaWeb/">JavaWeb</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-10-31
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="1、vue"><a href="#1、vue" class="headerlink" title="1、vue"></a>1、vue</h4><ul>
+<li><p>简介<br>Vue.js是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。另一方面，在与相关工具和支持库一起使用时，Vue.js 也能完美地驱动复杂的单页应用。vue是国人开发的，文档对国人还是很友好的，很多东西可以直接去<a target="_blank" rel="noopener" href="https://cn.vuejs.org/">官网</a>找。</p>
+</li>
+<li><p>优缺点</p>
+<ul>
+<li>Vue.js是一套构建用户界面的框架，只关注视图层，易上手，有配套的第三方类库。</li>
+<li>提高开发效率，帮助减少不必要的dom操作；双向数据绑定，通过框架提供的指令，前端只需要关注业务逻辑，不再关心dom如何渲染。</li>
+<li>一套完整的解决方案，对项目侵入性大，中途需要跟换框架则需要重构整个项目</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、环境安装"><a href="#2、环境安装" class="headerlink" title="2、环境安装"></a>2、环境安装</h4><ul>
+<li><code>nodejs安装：</code><a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></li>
+<li><code>npm安装淘宝镜像：</code>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></li>
+<li><code>安装webpack：</code>cnpm install webpack -g</li>
+<li><code>安装vue-cli。</code>npm install –global vue-cli</li>
+<li><code>环境安装：</code>cnpm install</li>
+<li><code>运行Vue项目：</code>npm run serve</li>
+</ul>
+<h4 id="3、前端的MVVM"><a href="#3、前端的MVVM" class="headerlink" title="3、前端的MVVM"></a>3、前端的MVVM</h4><p>前端视图层的概念，主要把每个页面分成了M（Model）、V（View）、VM（VM ViewModel）。VM是其中核心，M和V间的调度者。前端中使用MVVM思想，主要让开发更方便，MVVM提供了数据的双向绑定（由VM提供）。</p>
+<ul>
+<li><code>M：</code>保存的是每个页面中单独的数据（比如要渲染页面表格，ajax请求到后台的你个数组，此数据即为M）。</li>
+<li><code>V：</code>每个页面的html结构。</li>
+<li><code>VM：</code>一个调度者，分割了M和V，M和V不直接关联，通过中间的VM。V想要保存数据到M，都要有VM做中间处理；V想要渲染页面，需要调用VM，VM从M中取数据。</li>
+</ul>
+<h4 id="4、常用指令"><a href="#4、常用指令" class="headerlink" title="4、常用指令"></a>4、常用指令</h4><p>vue指令都是以v-xxx开头的，vue指令都可以作为标签属性直接使用。</p>
+<ul>
+<li><p>v-text<br>更新标签的文本内容，如果包含dom标签会当做字符串直接显示。   </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-text</span>=<span class="hljs-string">&quot;msg&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>v-html<br>如果内容包含dom标签，可以渲染成相应的组件。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml">var vue = new Vue(&#123;<br>    el:&quot;#app&quot;,<br>    data:&#123;<br>        info:&quot;worlds&quot;,<br>        ht:&quot;<span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>你好<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>&quot;<br>    &#125;,<br>    methods:&#123;<br>        add(msg)&#123;<br>            vue.info = msg;<br>        &#125;<br>    &#125;<br>&#125;);<br><br><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">&quot;ht&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>v-show<br>可以控制组件是否显示，是display的封装，组件一直在dom树节点上  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>world<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>v-if v-else-if v-else<br>显示与隐藏，隐藏的话将不在dom树节点显示</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;info == &#x27;world&#x27;&quot;</span>&gt;</span>世界<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">&quot;info == &#x27;hello&#x27;&quot;</span>&gt;</span>你好<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else</span>&gt;</span>拜拜<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>v-for<br>循环创建节点  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;i in 100&quot;</span>&gt;</span>world world<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>v-model<br>数据双向绑定，可以通过修改dom组件中的文本值，修改js脚本中的变量值，只对表单元素有效果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> vue = <span class="hljs-keyword">new</span> Vue(&#123;<br>    el:<span class="hljs-string">&quot;#app&quot;</span>,<br>    data:&#123;<br>        msg:<span class="hljs-string">&quot;&quot;</span>,<br>        info:<span class="hljs-string">&quot;你好&quot;</span>            <br>    &#125;,<br>    methods:&#123;<br>        setText()&#123;<br>            vue.info = <span class="hljs-built_in">this</span>.msg;<br>        &#125;<br>    &#125;<br>&#125;);<br><br><br>&lt;div id=<span class="hljs-string">&quot;app&quot;</span>&gt;<br>    &lt;p v-text=<span class="hljs-string">&quot;info&quot;</span>&gt;&lt;/p&gt;<br>    &lt;p v-html=<span class="hljs-string">&quot;info&quot;</span>&gt;&lt;/p&gt;<br>    &lt;p&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;msg&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;setText()&quot;</span>&gt;</span>点击<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>&lt;/div&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>v-on<br>相当于@为按钮绑定点击事件  </p>
+<figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs hsp">&lt;<span class="hljs-keyword">button</span> v-<span class="hljs-keyword">on</span>:click=<span class="hljs-string">&quot;setText&quot;</span>&gt;点击&lt;/<span class="hljs-keyword">button</span>&gt;<br>&lt;<span class="hljs-keyword">button</span> @click=<span class="hljs-string">&quot;setText()&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年11月25日 10:23</p>
+        <p>原始链接： <a class="post-url" href="/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" title="vue环境配置和使用">http://genpe.top/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/&title=《vue环境配置和使用》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/&title=《vue环境配置和使用》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue环境配置和使用》 — Genpe&url=http://genpe.top/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaWeb/" class="color3">JavaWeb</a>
+      
+    <a href="/tags/vue/" class="color4">vue</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81vue"><span class="post-toc-text">1、vue</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="post-toc-text">2、环境安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81%E5%89%8D%E7%AB%AF%E7%9A%84MVVM"><span class="post-toc-text">3、前端的MVVM</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="post-toc-text">4、常用指令</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/11/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E4%BC%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          mysql优化
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">java基础总结</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jvm简介 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="1、常见问题 硬件升级系统反而变得卡顿 垃圾回收器选择不当，重新选择适当的垃圾回收器 1.8之前叫做method are 方法区，1.8之后叫做meta space元数据区 栈溢出设置-Xss大小   2、垃圾回收器常用算法内存分区：eden区+s0（survivor）+s1（survivor）+old区  扫描整个内存区域  serial + serial old parallel scaven">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jvm简介">
+<meta property="og:url" content="http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="1、常见问题 硬件升级系统反而变得卡顿 垃圾回收器选择不当，重新选择适当的垃圾回收器 1.8之前叫做method are 方法区，1.8之后叫做meta space元数据区 栈溢出设置-Xss大小   2、垃圾回收器常用算法内存分区：eden区+s0（survivor）+s1（survivor）+old区  扫描整个内存区域  serial + serial old parallel scaven">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-09-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-02T05:29:54.886Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="JavaBase">
+<meta property="article:tag" content="JVM">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/java基础/jvm简介" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      jvm简介
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaBase/">JavaBase</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-09-16
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h5 id="1、常见问题"><a href="#1、常见问题" class="headerlink" title="1、常见问题"></a>1、常见问题</h5><ul>
+<li><p>硬件升级系统反而变得卡顿</p>
+<p>垃圾回收器选择不当，重新选择适当的垃圾回收器</p>
+<p>1.8之前叫做method are 方法区，1.8之后叫做meta space元数据区</p>
+<p>栈溢出设置-Xss大小</p>
+</li>
+</ul>
+<h4 id="2、垃圾回收器常用算法"><a href="#2、垃圾回收器常用算法" class="headerlink" title="2、垃圾回收器常用算法"></a>2、垃圾回收器常用算法</h4><p>内存分区：eden区+s0（survivor）+s1（survivor）+old区</p>
+<ul>
+<li><p>扫描整个内存区域</p>
+<ul>
+<li>serial + serial old</li>
+<li>parallel scavenge + parallel  old（jdk8垃圾回收器）</li>
+<li>parnew+cms</li>
+</ul>
+</li>
+<li><p>开始讲内存区域分成很多歌小份</p>
+<ul>
+<li>g1   （jdk9默认的垃圾回收器）    </li>
+</ul>
+</li>
+<li><p>开始讲内存区域分成不同大小的区域</p>
+<ul>
+<li>zgc</li>
+<li>shenandoah</li>
+</ul>
+</li>
+</ul>
+<h4 id="3、名词解释"><a href="#3、名词解释" class="headerlink" title="3、名词解释"></a>3、名词解释</h4><ul>
+<li><p>stw：stop thread wait 线程停止等待</p>
+</li>
+<li><p>三色标记</p>
+</li>
+<li><p>颜色指针</p>
+</li>
+<li><p>ygc：eden区内存不足时会进行ygc（多线程并发执行）</p>
+</li>
+<li><p>fgc：old区内存不足时会进行fgc（system.gc（））</p>
+</li>
+</ul>
+<h4 id="4、cms算法"><a href="#4、cms算法" class="headerlink" title="4、cms算法"></a>4、cms算法</h4><p>cms 在进行fgc的时候会耗费大量时间</p>
+<ul>
+<li><p>步骤：<br>concurrent字样表示垃圾回收线程和程序线程在同时工作</p>
+<ul>
+<li><p>initial mark（初始标记）</p>
+<p>通过gcroots找到根对象，这个阶段会有stw现象，不过根对象比较少，stw时间很短</p>
+</li>
+<li><p>concurrent mark（并发标记）（核心思想）</p>
+<p>会发生多次并发标记，通过根对象往下找。最耗时的阶段，因为并发执行，所以不会有stw的现象</p>
+</li>
+<li><p>remark（重新标记）</p>
+<p>在并发标记中有引用关系发生变化时，会对这些对象进行重新标记，会有stw现象，由于刚进行完并发标记，所以改动的引用关系不是很多，所以stw时间很短。</p>
+</li>
+<li><p>concurrent sweep（并发回收）</p>
+<p>将标记为垃圾的对象进行清理，回收进行时产生的新的垃圾被称为浮动垃圾，这些垃圾会在下次gc的时候清理</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>缺点：<ul>
+<li>碎片化</li>
+<li>浮动垃圾</li>
+</ul>
+</li>
+</ul>
+<h4 id="5、g1算法"><a href="#5、g1算法" class="headerlink" title="5、g1算法"></a>5、g1算法</h4><p>采用分而治之的思想，将内存从1m-&gt;2m。。2^n  分成多个区域，最大32m</p>
+<ul>
+<li><p>g1的fgc在jdk10之前是单线程的串行执行，所以fgc效率特别低，应当减少fgc频率。</p>
+<ul>
+<li>如果G1产生FGC，你应该做什么？</li>
+</ul>
+<ol>
+<li><p>扩内存</p>
+</li>
+<li><p>提高CPU性能（回收的快，业务逻辑产生对象的速度固定，垃圾回收越快，内存空间越大）</p>
+</li>
+<li><p>降低MixedGC触发的阈值，让MixedGC提早发生（默认是45%），可以减少fgc的频率。</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>新老年代比例分配</p>
+<p>一般不需要手动指定大小，不要使用手工指定，g1会以预测的停顿时间为标准，进行动态的比例划分调整新老年代区域比例</p>
+</li>
+</ul>
+<ul>
+<li><p>优点</p>
+<ul>
+<li><p>并发收集</p>
+</li>
+<li><p>压缩空闲空间不会延长gc的时间</p>
+</li>
+<li><p>更易预测gc暂停时间</p>
+</li>
+<li><p>适用不需要很高的吞吐量的场景，但是需要很高的响应时间</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>mixedgc类似于cms</p>
+<p>如果g1产生fgc可以降低mixedgc触发的阈值，提前让mixedgc提前发生</p>
+<ul>
+<li><p>mixed是g1的正常回收算法，当对象占内存比达到阈值，会触发mixed进行垃圾回收；</p>
+</li>
+<li><p>g1的fgc使用的算法是serial算法回收垃圾。  </p>
+</li>
+</ul>
+</li>
+<li><p>三色标记法</p>
+<ul>
+<li><p>三色标记有白色、黑色、灰色</p>
+<p>白色：未被标记的对象</p>
+<p>黑色：自身和成员变量都被标记完成</p>
+<p>灰色：自身被标记，成员变量未被标记</p>
+</li>
+<li><p>increment update 增量更新</p>
+<p>关注引用的增加，将黑色重新标记为灰色</p>
+</li>
+<li><p>SATB （snapshot at the beginning）</p>
+<p>关注引用的删除，当引用被删除，会将引用推送到gc的堆栈，保证删除的引用还可以被gc扫描到。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年03月02日 13:29</p>
+        <p>原始链接： <a class="post-url" href="/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/" title="jvm简介">http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/&title=《jvm简介》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/&title=《jvm简介》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jvm简介》 — Genpe&url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaBase/" class="color4">JavaBase</a>
+      
+    <a href="/tags/JVM/" class="color4">JVM</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="post-toc-text">1、常见问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95"><span class="post-toc-text">2、垃圾回收器常用算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="post-toc-text">3、名词解释</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81cms%E7%AE%97%E6%B3%95"><span class="post-toc-text">4、cms算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5%E3%80%81g1%E7%AE%97%E6%B3%95"><span class="post-toc-text">5、g1算法</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          spring简介
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/SSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">SSM项目搭建流程</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

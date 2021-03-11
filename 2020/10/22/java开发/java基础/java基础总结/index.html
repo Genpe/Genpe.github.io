@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java基础总结 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="1、面向对象和面向过程对比 面向对象需要实例化，因此需要调度资源，开销大影响性能，但是它的封装、继承、多态三个特性使它易维护、易复用、易扩展。面向过程性能较优，适合看中性能的开发，比如单片式和嵌入式开发，比较注重性能。 注：解释性面向过程语言不一定比面向对象性能好，java语言性能低的原因还有他是半解释半编译型语言。  2、Java和c++比较 java不提供指针直接访问内存，内存操作由jvm来执">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础总结">
+<meta property="og:url" content="http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="1、面向对象和面向过程对比 面向对象需要实例化，因此需要调度资源，开销大影响性能，但是它的封装、继承、多态三个特性使它易维护、易复用、易扩展。面向过程性能较优，适合看中性能的开发，比如单片式和嵌入式开发，比较注重性能。 注：解释性面向过程语言不一定比面向对象性能好，java语言性能低的原因还有他是半解释半编译型语言。  2、Java和c++比较 java不提供指针直接访问内存，内存操作由jvm来执">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201022094748183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201022094858427.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2020-10-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-22T02:09:27.354Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="JavaBase">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201022094748183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/java基础/java基础总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java基础总结
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaBase/">JavaBase</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-10-22
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="1、面向对象和面向过程对比"><a href="#1、面向对象和面向过程对比" class="headerlink" title="1、面向对象和面向过程对比"></a>1、面向对象和面向过程对比</h4><ul>
+<li>面向对象需要实例化，因此需要调度资源，开销大影响性能，但是它的封装、继承、多态三个特性使它易维护、易复用、易扩展。面向过程性能较优，适合看中性能的开发，比如单片式和嵌入式开发，比较注重性能。</li>
+<li>注：解释性面向过程语言不一定比面向对象性能好，java语言性能低的原因还有他是半解释半编译型语言。</li>
+</ul>
+<h4 id="2、Java和c-比较"><a href="#2、Java和c-比较" class="headerlink" title="2、Java和c++比较"></a>2、Java和c++比较</h4><ul>
+<li>java不提供指针直接访问内存，内存操作由jvm来执行，并且会有gc线程帮忙管理内存，gc会自动申请释放内存，不需要程序员手动释放，c++需要程序员主动申请和释放。</li>
+<li>java类只能单继承，接口可以多继承，这样可以让类结构层次更清晰，c++支持多继承。</li>
+</ul>
+<h4 id="3、字符常量和字符串常量的区别"><a href="#3、字符常量和字符串常量的区别" class="headerlink" title="3、字符常量和字符串常量的区别"></a>3、字符常量和字符串常量的区别</h4><ul>
+<li>字符常量是ascll码值，可以参与运算，字符串常量是个地址值。</li>
+<li>java中字符占2个字节，c++占1个字节，字符串根据具体长度计算。</li>
+</ul>
+<h4 id="4、重载、重写重定义"><a href="#4、重载、重写重定义" class="headerlink" title="4、重载、重写重定义"></a>4、重载、重写重定义</h4><ul>
+<li>父类的私有属性和构造方法只能被重载不能重写。</li>
+<li>重载： 发生在同一个类中，方法名必须相同，参数类型不同、个数不同、顺序不同，方法返回值和访问修饰符可以不同，发生在编译时。 　　</li>
+<li>重写： 发生在父子类中，方法名、参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类；如果父类方法访问修饰符为 private 则子类就不能重写该方法。</li>
+<li>重定义：发生在父子类中，方法名相同，返回值可以不同，参数列表可以相同（不能有Override解释）。</li>
+</ul>
+<h4 id="5、Java中的多态"><a href="#5、Java中的多态" class="headerlink" title="5、Java中的多态"></a>5、Java中的多态</h4><h5 id="5-1-Java实现多态有三个必要条件：继承、重写、向上转型。"><a href="#5-1-Java实现多态有三个必要条件：继承、重写、向上转型。" class="headerlink" title="5.1 Java实现多态有三个必要条件：继承、重写、向上转型。"></a>5.1 Java实现多态有三个必要条件：继承、重写、向上转型。</h5><p>所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量到底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。</p>
+<h5 id="5-2-在Java中有两种形式可以实现多态：继承（多个子类对同一方法的重写）和接口（实现接口并覆盖接口中同一方法）。"><a href="#5-2-在Java中有两种形式可以实现多态：继承（多个子类对同一方法的重写）和接口（实现接口并覆盖接口中同一方法）。" class="headerlink" title="5.2 在Java中有两种形式可以实现多态：继承（多个子类对同一方法的重写）和接口（实现接口并覆盖接口中同一方法）。"></a>5.2 在Java中有两种形式可以实现多态：继承（多个子类对同一方法的重写）和接口（实现接口并覆盖接口中同一方法）。</h5><p>在了解java多态特性的时候，必须要了解到向上转型和向下转型，在继承中，我们可以通过子类去实例化父类或者使用父类去实例化子类，这样可以达到多态的效果，下面对向上转型和向下转型操作做一个详细解释。</p>
+<ul>
+<li>向上转型：通过子类对象(小范围)实例化父类对象(大范围)，这种属于自动转换，向上转型时，父类只能调用父类方法或者子类覆写后的方法，而子类中的单独方法则是无法调用的。</li>
+<li>向下转型：通过父类对象(大范围)实例化子类对象(小范围),这种属于强制转换，在java中向下转型则是为了，通过父类强制转换为子类，从而来调用子类独有的方法(向下转型，在工程中很少用到)。为了保证向下转型的顺利完成，在java中提供了一个关键字：instanceof，通过instanceof可以判断某对象是否是某类的实例，如果是则返回true，否则为false。<h5 id="5-3-编译时多态和运行时多态"><a href="#5-3-编译时多态和运行时多态" class="headerlink" title="5.3 编译时多态和运行时多态"></a>5.3 编译时多态和运行时多态</h5>对于面向对象语言，多态分为编译时多态和运行时多态。其中编译时多态是静态的，主要是指方法的重载，它是根据参数列表的不同来区分不同的函数，通过编译之后会变成两个不同的函数，在运行时谈不上多态。而运行时多态是动态的，它是通过动态绑定来实现的，也就是我们所说的多态性。</li>
+</ul>
+<h4 id="6、final关键字主要用在三个地方：变量、方法、类。"><a href="#6、final关键字主要用在三个地方：变量、方法、类。" class="headerlink" title="6、final关键字主要用在三个地方：变量、方法、类。"></a>6、final关键字主要用在三个地方：变量、方法、类。</h4><ul>
+<li>对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。</li>
+<li>当用final修饰一个类时，表明这个类不能被继承。final类中的所有成员方法都会被隐式地指定为final方法。</li>
+<li>使用final方法的原因有两个。第一个原因是把方法锁定，以防任何继承类修改它的含义；第二个原因是效率。在早期的Java实现版本中，会将final方法转为内嵌调用。但是如果方法过于庞大，可能看不到内嵌调用带来的任何性能提升（现在的Java版本已经不需要使用final方法进行这些优化了）。类中所有的private方法都隐式地指定为final。</li>
+</ul>
+<h4 id="7、hashCode（）与equals（）的相关规定"><a href="#7、hashCode（）与equals（）的相关规定" class="headerlink" title="7、hashCode（）与equals（）的相关规定"></a>7、hashCode（）与equals（）的相关规定</h4><ul>
+<li>如果两个对象相等，则hashcode一定也是相同的</li>
+<li>两个对象相等,对两个对象分别调用equals方法都返回true</li>
+<li>两个对象有相同的hashcode值，它们也不一定是相等的</li>
+<li>因此，equals 方法被覆盖过，则 hashCode 方法也必须被覆盖</li>
+<li>hashCode() 的默认行为是对堆上的对象产生独特值。如果没有重写 hashCode()，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）</li>
+</ul>
+<h4 id="8、-与-equals-重要"><a href="#8、-与-equals-重要" class="headerlink" title="8、== 与 equals(重要)"></a>8、== 与 equals(重要)</h4><ul>
+<li><code>==: </code>它的作用是判断两个对象的地址是不是相等。即，判断两个对象是不是同一个对象(基本数据类型==比较的是值，引用数据类型==比较的是内存地址)。</li>
+<li><code>equals() : </code>它的作用也是判断两个对象是否相等。但它一般有两种使用情况：<br><code>情况1：</code>类没有覆盖 equals() 方法。则通过 equals() 比较该类的两个对象时，等价于通过“==”比较这两个对象。<br><code>情况2：</code>类覆盖了 equals() 方法。一般，我们都覆盖 equals() 方法来比较两个对象的内容是否相等；若它们的内容相等，则返回 true (即，认为这两个对象相等)。</li>
+</ul>
+<h4 id="9、Java异常与错误"><a href="#9、Java异常与错误" class="headerlink" title="9、Java异常与错误"></a>9、Java异常与错误</h4><p>java中异常和错误都是Throwable的子类，其中error无法被程序本身处理，exception可以被程序本身进行处理。</p>
+<h5 id="9-1-Throwable类常用方法："><a href="#9-1-Throwable类常用方法：" class="headerlink" title="9.1 Throwable类常用方法："></a>9.1 Throwable类常用方法：</h5><ul>
+<li>public string getMessage():返回异常发生时的简要描述</li>
+<li>public string toString():返回异常发生时的详细信息</li>
+<li>public string getLocalizedMessage():返回异常对象的本地化信息。使用Throwable的子类覆盖这个方法，可以生成本地化信息。如果子类没有覆盖该方法，则该方法返回的信息与getMessage（）返回的结果相同</li>
+<li>public void printStackTrace():在控制台上打印Throwable对象封装的异常信息<h5 id="9-2-finally执行注意点："><a href="#9-2-finally执行注意点：" class="headerlink" title="9.2 finally执行注意点："></a>9.2 finally执行注意点：</h5></li>
+<li>在finally语句块第一行发生了异常。 因为在其他行，finally块还是会得到执行</li>
+<li>在前面的代码中用了System.exit(int)已退出程序。 exit是带参函数 ；若该语句在异常语句之后，finally会执行</li>
+<li>程序所在的线程死亡。</li>
+<li>关闭CPU。</li>
+<li>当try语句和finally语句中都有return语句时，在方法返回之前，finally语句的内容将被执行，并且finally语句的返回值将会覆盖原始的返回值。</li>
+</ul>
+<h4 id="10、获取用键盘输入常用的两种方法"><a href="#10、获取用键盘输入常用的两种方法" class="headerlink" title="10、获取用键盘输入常用的两种方法"></a>10、获取用键盘输入常用的两种方法</h4><p><code>方法1：</code>通过 Scanner</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">   Scanner input = <span class="hljs-built_in">new</span> Scanner(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">in</span>);<br>String s  = <span class="hljs-keyword">input</span>.nextLine();<br><span class="hljs-keyword">input</span>.<span class="hljs-keyword">close</span>();  <br></code></pre></td></tr></table></figure>
+<p><code>方法2：</code>通过 BufferedReader  </p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs haxe">BufferedReader input = <span class="hljs-keyword">new</span> <span class="hljs-type">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-type">InputStreamReader</span>(System.<span class="hljs-keyword">in</span>));   <br><span class="hljs-keyword">String</span> s = input.readLine(); <br></code></pre></td></tr></table></figure>
+
+<h4 id="11、Java中的IO流"><a href="#11、Java中的IO流" class="headerlink" title="11、Java中的IO流"></a>11、Java中的IO流</h4><ul>
+<li><p>java io流主要4个抽象类：InputStream（字节输入流）、Reader（字符输入流） 、OutputStream（字节输出流）、Writer（字符输出流）。</p>
+</li>
+<li><p>java io流按照流的方向可以分为输入流和输出流。</p>
+</li>
+<li><p>java io流按照操作单元可以分为字节流和字符流</p>
+</li>
+<li><p>字符流是通过java虚拟机转换得到的，转换过程比较耗时，而且在未知编码类型传输时使用字节流容易出现乱码现象，所以提供了字符流。</p>
+</li>
+<li><p>按操作方式java io流结构图：<br><img src="https://img-blog.csdnimg.cn/20201022094748183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">  </p>
+</li>
+<li><p>按照操作对象java io流分类结构图：<br><img src="https://img-blog.csdnimg.cn/20201022094858427.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h4 id="12、BIO-NIO-AIO-有什么区别"><a href="#12、BIO-NIO-AIO-有什么区别" class="headerlink" title="12、BIO,NIO,AIO 有什么区别?"></a>12、BIO,NIO,AIO 有什么区别?</h4><ul>
+<li>BIO (Blocking I/O): 同步阻塞I/O模式，数据的读取写入必须阻塞在一个线程内等待其完成。在活动连接数不是特别高（小于单机1000）的情况下，这种模型是比较不错的，可以让每一个连接专注于自己的 I/O 并且编程模型简单，也不用过多考虑系统的过载、限流等问题。线程池本身就是一个天然的漏斗，可以缓冲一些系统处理不了的连接或请求。但是，当面对十万甚至百万级连接的时候，传统的 BIO 模型是无能为力的。因此，我们需要一种更高效的 I/O 处理模型来应对更高的并发量。</li>
+<li>NIO (New I/O): NIO是一种同步非阻塞的I/O模型，在Java 1.4 中引入了NIO框架，对应 java.nio 包，提供了 Channel , Selector，Buffer等抽象。NIO中的N可以理解为Non-blocking，不单纯是New。它支持面向缓冲的，基于通道的I/O操作方法。 NIO提供了与传统BIO模型中的 Socket 和 ServerSocket 相对应的 SocketChannel 和 ServerSocketChannel 两种不同的套接字通道实现,两种通道都支持阻塞和非阻塞两种模式。阻塞模式使用就像传统中的支持一样，比较简单，但是性能和可靠性都不好；非阻塞模式正好与之相反。对于低负载、低并发的应用程序，可以使用同步阻塞I/O来提升开发速率和更好的维护性；对于高负载、高并发的（网络）应用，应使用 NIO 的非阻塞模式来开发</li>
+<li>AIO (Asynchronous I/O): AIO 也就是 NIO 2。在 Java 7 中引入了 NIO 的改进版 NIO 2,它是异步非阻塞的IO模型。异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。AIO 是异步IO的缩写，虽然 NIO 在网络操作中，提供了非阻塞的方法，但是 NIO 的 IO 行为还是同步的。对于 NIO 来说，我们的业务线程是在 IO 操作准备好时，得到通知，接着就由这个线程自行进行 IO 操作，IO操作本身是同步的。查阅网上相关资料，我发现就目前来说 AIO 的应用还不是很广泛，Netty 之前也尝试使用过 AIO，不过又放弃了。</li>
+</ul>
+<h4 id="13、Java序列化"><a href="#13、Java序列化" class="headerlink" title="13、Java序列化"></a>13、Java序列化</h4><ul>
+<li>所有需要网络传输的对象都需要实现序列化接口，通过建议所有的javaBean都实现Serializable接口。</li>
+<li>对象的类名、实例变量（包括基本类型，数组，对其他对象的引用）都会被序列化；方法、类变量、transient实例变量都不会被序列化。</li>
+<li>如果想让某个变量不被序列化，使用transient修饰。</li>
+<li>序列化对象的引用类型成员变量，也必须是可序列化的，否则，会报错。</li>
+<li>反序列化时必须有序列化对象的class文件。</li>
+<li>当通过文件、网络来读取序列化后的对象时，必须按照实际写入的顺序读取。</li>
+<li>单例类序列化，需要重写readResolve()方法；否则会破坏单例原则。</li>
+<li>同一对象序列化多次，只有第一次序列化为二进制流，以后都只是保存序列化编号，不会重复序列化。</li>
+<li>建议所有可序列化的类加上serialVersionUID 版本号，方便项目升级。</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年10月22日 10:09</p>
+        <p>原始链接： <a class="post-url" href="/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" title="java基础总结">http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/&title=《java基础总结》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/&title=《java基础总结》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java基础总结》 — Genpe&url=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaBase/" class="color4">JavaBase</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E5%AF%B9%E6%AF%94"><span class="post-toc-text">1、面向对象和面向过程对比</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81Java%E5%92%8Cc-%E6%AF%94%E8%BE%83"><span class="post-toc-text">2、Java和c++比较</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81%E5%AD%97%E7%AC%A6%E5%B8%B8%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">3、字符常量和字符串常量的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81%E9%87%8D%E8%BD%BD%E3%80%81%E9%87%8D%E5%86%99%E9%87%8D%E5%AE%9A%E4%B9%89"><span class="post-toc-text">4、重载、重写重定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5%E3%80%81Java%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81"><span class="post-toc-text">5、Java中的多态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-1-Java%E5%AE%9E%E7%8E%B0%E5%A4%9A%E6%80%81%E6%9C%89%E4%B8%89%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6%EF%BC%9A%E7%BB%A7%E6%89%BF%E3%80%81%E9%87%8D%E5%86%99%E3%80%81%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E3%80%82"><span class="post-toc-text">5.1 Java实现多态有三个必要条件：继承、重写、向上转型。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-2-%E5%9C%A8Java%E4%B8%AD%E6%9C%89%E4%B8%A4%E7%A7%8D%E5%BD%A2%E5%BC%8F%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E5%A4%9A%E6%80%81%EF%BC%9A%E7%BB%A7%E6%89%BF%EF%BC%88%E5%A4%9A%E4%B8%AA%E5%AD%90%E7%B1%BB%E5%AF%B9%E5%90%8C%E4%B8%80%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E5%86%99%EF%BC%89%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%88%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E5%B9%B6%E8%A6%86%E7%9B%96%E6%8E%A5%E5%8F%A3%E4%B8%AD%E5%90%8C%E4%B8%80%E6%96%B9%E6%B3%95%EF%BC%89%E3%80%82"><span class="post-toc-text">5.2 在Java中有两种形式可以实现多态：继承（多个子类对同一方法的重写）和接口（实现接口并覆盖接口中同一方法）。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-3-%E7%BC%96%E8%AF%91%E6%97%B6%E5%A4%9A%E6%80%81%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%A4%9A%E6%80%81"><span class="post-toc-text">5.3 编译时多态和运行时多态</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%BB%E8%A6%81%E7%94%A8%E5%9C%A8%E4%B8%89%E4%B8%AA%E5%9C%B0%E6%96%B9%EF%BC%9A%E5%8F%98%E9%87%8F%E3%80%81%E6%96%B9%E6%B3%95%E3%80%81%E7%B1%BB%E3%80%82"><span class="post-toc-text">6、final关键字主要用在三个地方：变量、方法、类。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7%E3%80%81hashCode%EF%BC%88%EF%BC%89%E4%B8%8Eequals%EF%BC%88%EF%BC%89%E7%9A%84%E7%9B%B8%E5%85%B3%E8%A7%84%E5%AE%9A"><span class="post-toc-text">7、hashCode（）与equals（）的相关规定</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8%E3%80%81-%E4%B8%8E-equals-%E9%87%8D%E8%A6%81"><span class="post-toc-text">8、&#x3D;&#x3D; 与 equals(重要)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9%E3%80%81Java%E5%BC%82%E5%B8%B8%E4%B8%8E%E9%94%99%E8%AF%AF"><span class="post-toc-text">9、Java异常与错误</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#9-1-Throwable%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="post-toc-text">9.1 Throwable类常用方法：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#9-2-finally%E6%89%A7%E8%A1%8C%E6%B3%A8%E6%84%8F%E7%82%B9%EF%BC%9A"><span class="post-toc-text">9.2 finally执行注意点：</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#10%E3%80%81%E8%8E%B7%E5%8F%96%E7%94%A8%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="post-toc-text">10、获取用键盘输入常用的两种方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11%E3%80%81Java%E4%B8%AD%E7%9A%84IO%E6%B5%81"><span class="post-toc-text">11、Java中的IO流</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#12%E3%80%81BIO-NIO-AIO-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="post-toc-text">12、BIO,NIO,AIO 有什么区别?</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#13%E3%80%81Java%E5%BA%8F%E5%88%97%E5%8C%96"><span class="post-toc-text">13、Java序列化</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/10/31/java%E5%BC%80%E5%8F%91/javaWeb/vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          vue环境配置和使用
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">java容器总结</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

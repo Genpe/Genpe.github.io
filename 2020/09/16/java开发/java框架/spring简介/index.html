@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>spring简介 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="1、spring简介Spring是一个分层的 full-stack（一站式）轻量级框架，以Ioc（Inversion of Control，控制反转）和AOP（Aspect Oriented Programming，面向切片编程）为内核，使用简单的JavaBean来完成以前只能由EJB（Enterprise Java Beans）完成的工作，取代了臃肿、低效的EJB。Spring致力于Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring简介">
+<meta property="og:url" content="http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="1、spring简介Spring是一个分层的 full-stack（一站式）轻量级框架，以Ioc（Inversion of Control，控制反转）和AOP（Aspect Oriented Programming，面向切片编程）为内核，使用简单的JavaBean来完成以前只能由EJB（Enterprise Java Beans）完成的工作，取代了臃肿、低效的EJB。Spring致力于Java">
+<meta property="og:locale">
+<meta property="og:image" content="http://genpe.top/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-core.png">
+<meta property="og:image" content="http://genpe.top/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-sql.png">
+<meta property="og:image" content="http://genpe.top/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-web.png">
+<meta property="og:image" content="http://genpe.top/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-aop.png">
+<meta property="og:image" content="http://genpe.top/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-test.png">
+<meta property="article:published_time" content="2020-09-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-14T08:22:41.771Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="JavaFrame">
+<meta property="article:tag" content="SSM">
+<meta property="article:tag" content="spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://genpe.top/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-core.png">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/java框架/spring简介" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      spring简介
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaFrame/">JavaFrame</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-09-16
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <a id="more"></a>
+
+<h4 id="1、spring简介"><a href="#1、spring简介" class="headerlink" title="1、spring简介"></a>1、spring简介</h4><p>Spring是一个分层的 full-stack（一站式）轻量级框架，以Ioc（Inversion of Control，控制反转）和AOP（Aspect Oriented Programming，面向切片编程）为内核，使用简单的JavaBean来完成以前只能由EJB（Enterprise Java Beans）完成的工作，取代了臃肿、低效的EJB。Spring致力于JavaEE应用各层的解决方案，是企业应用一站式开发很好的选择，在表现层它提供了Spring MVC以及整合Struts的功能，在业务逻辑层可以管理事务、记录日志等，在持久层可以整合Hibernate、Mybatis等框架。虽然Spring贯穿表现层、业务逻辑层、持久层，但Spring并不是要取代那些已有的优秀框架，而是可以高度开放的与其它优秀框架无缝整合。</p>
+<ul>
+<li>IOC简介<br>  由系统中负责协调各对象的第三方组件，在创建对象的时候通过JavaBean属性（设值方法注入）或者构造函数（构造器注入），设定对象的依赖关系。【注意，是接收者依赖被接收者】。依赖注入会将所依赖的关系自动交给目标，而不是让它自己去获取依赖。也就是说，目标并不需要自己去创建其他类的对象，而是直接接收对象。并且，目标往往是与接口耦合，只要接收的对象实现了某个接口就可以。这样，就能由依赖注入随意更换接收的对象，进一步松耦合。依赖注入的另一个好处是：方便测试。紧耦合的目标难以测试，而通过依赖注入，可以让一个测试类实现耦合接口，然后不用修改代码，就可以让目标接收测试对象了。</li>
+<li>AOP简介<br>  为促使软件系统实现关注点的分离的一项技术，将遍布应用各处的功能分离出来，形成可重用的组件。<br/><br>  <code>横切关注点：</code>诸如日志、事务管理和安全这样的系统服务，经常融入到自身具有核心业务逻辑的组件中去，把这些系统服务称为横切关注点。<br/><br>  <code>作用：</code>AOP将横切关注点模块化，在需要的组件中以声明的方式应用。组件只需要关注自身的业务代码，甚至根本不知道那些横切关注点的存在。这样，就避免了横切关注点的功能（代码或是方法调用）在各个组件中反复出现、使得组件变得混乱而复杂的缺陷，确保了POJO的简单性。  </li>
+</ul>
+<h4 id="2、Spring的优点"><a href="#2、Spring的优点" class="headerlink" title="2、Spring的优点"></a>2、Spring的优点</h4><ul>
+<li>基于POJO的轻量级和最小侵入性编程<br>  Spring是一种非侵入式（no-invasive）框架，它可以使应用程序代码对框架的依赖最小化。</li>
+<li>通过依赖注入（DI）和面向接口实现松耦合,方便解耦、简化开发<br>  Spring是一个大工厂，可以将所有  对象的创建、依赖关系的维护 交给Spring容器管理，大大降低了组建之间的耦合。</li>
+<li>支持AOP,基于切面和惯例进行声明式编程<br>  允许将一些通用任务，比如安全、事务、日志等，进行集中式管理，从而提高程序的复用性。</li>
+<li>支持声明式事务处理<br>  通过配置就可以完成对事务的管理，无需手动编程。</li>
+<li>方便整合其它优秀框架<br>  Spring可以与大多数框架无缝整合。</li>
+<li>测试方便<br>  Spring支持Junit4，可通过注解测试程序，很方便。</li>
+<li>降低了使用JavaEE API的难度<br>  Spring对JavaEE开发中难用的一些API进行了封装，降低了这些API的使用难度。</li>
+</ul>
+<h4 id="3、spring获取对象"><a href="#3、spring获取对象" class="headerlink" title="3、spring获取对象"></a>3、spring获取对象</h4><h6 id="3-1-通过ApplicationContext获取bean对象"><a href="#3-1-通过ApplicationContext获取bean对象" class="headerlink" title="3.1 通过ApplicationContext获取bean对象"></a>3.1 通过ApplicationContext获取bean对象</h6><ul>
+<li>在applicationContext.xml中声明bean对象<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;demo&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.jing.Demo&quot;</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--bean对象属性初始化--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;属性名&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;初始化参数&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li>通过WebApplicationContext获取bean对象<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">WebApplicationContext webApplicationContext = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">WebApplicationContextUtils</span>.</span></span>get<span class="hljs-constructor">WebApplicationContext(<span class="hljs-params">request</span>.<span class="hljs-params">getServletContext</span>()</span>);<br>Demo demo  = (Demo)webApplicationContext.get<span class="hljs-constructor">Bean(<span class="hljs-string">&quot;demo&quot;</span>)</span>;<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="3-2-通过配置和注解获取bean对象"><a href="#3-2-通过配置和注解获取bean对象" class="headerlink" title="3.2 通过配置和注解获取bean对象"></a>3.2 通过配置和注解获取bean对象</h6><ul>
+<li><p>在applicationContext.xml中声明bean对象</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;demo&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.jing.Demo&quot;</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--bean对象属性初始化--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;属性名&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;初始化参数&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;test&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.jing.Test&quot;</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--bean对象属性初始化--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;属性名&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;初始化参数&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br>``` <br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用注解注入bean对象  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-meta">@Resource(name = <span class="hljs-meta-string">&quot;demo&quot;</span>)</span><br><span class="hljs-keyword">private</span> Demo demo;<br><br><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> Test test;<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="3-3-通过注解获取bean对象"><a href="#3-3-通过注解获取bean对象" class="headerlink" title="3.3 通过注解获取bean对象"></a>3.3 通过注解获取bean对象</h6><ul>
+<li>在applicationContext.xml中配置bean对象组件扫描器，指定bean类所在包路径，声明包路径下所有bean。<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs groovy">&lt;<span class="hljs-attr">context:</span>component-scan base-<span class="hljs-keyword">package</span> = <span class="hljs-string">&quot;com.jing.entity&quot;</span>/&gt;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> &#123;</span>&#125;<br><br><span class="hljs-meta">@Component</span>(<span class="hljs-string">&quot;test&quot;</span>)<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> &#123;</span>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>使用注解注入bean对象<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-meta">@Resource(name = <span class="hljs-meta-string">&quot;demo&quot;</span>)</span><br><span class="hljs-keyword">private</span> Demo demo;<br><br><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> Test test;<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="4、spring依赖包关系"><a href="#4、spring依赖包关系" class="headerlink" title="4、spring依赖包关系"></a>4、spring依赖包关系</h4><h6 id="4-1-spring核心jar包"><a href="#4-1-spring核心jar包" class="headerlink" title="4.1 spring核心jar包"></a>4.1 spring核心jar包</h6><ul>
+<li><p>Core模块：主要包含Spring框架基本的核心工具类，特别重要</p>
+</li>
+<li><p>Beans模块：包含访问配置文件、创建和管理bean以及进行Ioc/DI操作相关的所有类</p>
+</li>
+<li><p>Context模块：构建于Core和Beans模块基础之上，提供了一种类似于JNDI注册器的框架式的对象访问方法</p>
+</li>
+<li><p>Expression Languaga模块：提供了一个强大的表达式语言用于在运行时查询和操纵对象</p>
+<br/>
+
+<p><img src="/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-core.png" alt="jing"></p>
+<br/>  
+
+
+</li>
+</ul>
+<h6 id="4-2-spring数据库相关依赖"><a href="#4-2-spring数据库相关依赖" class="headerlink" title="4.2 spring数据库相关依赖"></a>4.2 spring数据库相关依赖</h6><ul>
+<li><p>JDBC模块：jdbc支持</p>
+</li>
+<li><p>ORM模块：对象关系映射，集成orm框架，如Hibernate，IBatis</p>
+</li>
+<li><p>OXM模块：对象XML映射</p>
+</li>
+<li><p>JMS（Java Message Service）模块：java消息服务</p>
+</li>
+<li><p>Transaction模块：事务控制</p>
+<br/>
+
+<p><img src="/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-sql.png" alt="jing"></p>
+<br/>
+
+</li>
+</ul>
+<h6 id="4-3-springWeb相关依赖"><a href="#4-3-springWeb相关依赖" class="headerlink" title="4.3 springWeb相关依赖"></a>4.3 springWeb相关依赖</h6><ul>
+<li><p>spring-web模块：提供了基础的面向web的集成特性，如文件上传</p>
+</li>
+<li><p>spring-webmvc模块：包含了spring 的mvc实现</p>
+</li>
+<li><p>spring-websocket：为web应用提供的高效通信工具</p>
+</li>
+<li><p>spring-web-portlet模块：提供了用于Portlet环境和web-servlet模块的mvc实现</p>
+<br/>
+
+<p><img src="/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-web.png" alt="jing"></p>
+<br/>
+
+</li>
+</ul>
+<h6 id="4-4-springAOP相关依赖"><a href="#4-4-springAOP相关依赖" class="headerlink" title="4.4 springAOP相关依赖"></a>4.4 springAOP相关依赖</h6><ul>
+<li><p>spring-aop：面向切面编程</p>
+</li>
+<li><p>spring-aspects ：Aspects模块提供了对AspectJ（一个面向切面的框架，它展Java语言）的集成支持。</p>
+</li>
+<li><p>spring-instrument：提供一些类级的工具支持和ClassLoader级的实现，用服务器</p>
+</li>
+<li><p>spring-instrument-tomcat：针对tomcat的instrument实现</p>
+</li>
+<li><p>spring-messaging：用于构建基于消息的应用程序</p>
+<br/>
+
+<p><img src="/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-aop.png" alt="jing"></p>
+<br/>
+
+</li>
+</ul>
+<h6 id="4-5-spring测试相关依赖"><a href="#4-5-spring测试相关依赖" class="headerlink" title="4.5 spring测试相关依赖"></a>4.5 spring测试相关依赖</h6><ul>
+<li><p>spring-test：spring测试，提供junit与mock测试功能</p>
+</li>
+<li><p>spring-context-support：spring额外支持包，比如邮件服务、视图解析等</p>
+<br/>
+
+<p><img src="/images/blog/spring%E8%AF%A6%E8%A7%A3/spring-test.png" alt="jing"></p>
+<br/>   </li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年10月14日 16:22</p>
+        <p>原始链接： <a class="post-url" href="/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/" title="spring简介">http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/&title=《spring简介》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/&title=《spring简介》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《spring简介》 — Genpe&url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spring%E7%AE%80%E4%BB%8B/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaFrame/" class="color5">JavaFrame</a>
+      
+    <a href="/tags/SSM/" class="color4">SSM</a>
+      
+    <a href="/tags/spring/" class="color2">spring</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81spring%E7%AE%80%E4%BB%8B"><span class="post-toc-text">1、spring简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81Spring%E7%9A%84%E4%BC%98%E7%82%B9"><span class="post-toc-text">2、Spring的优点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81spring%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">3、spring获取对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-1-%E9%80%9A%E8%BF%87ApplicationContext%E8%8E%B7%E5%8F%96bean%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">3.1 通过ApplicationContext获取bean对象</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-2-%E9%80%9A%E8%BF%87%E9%85%8D%E7%BD%AE%E5%92%8C%E6%B3%A8%E8%A7%A3%E8%8E%B7%E5%8F%96bean%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">3.2 通过配置和注解获取bean对象</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-3-%E9%80%9A%E8%BF%87%E6%B3%A8%E8%A7%A3%E8%8E%B7%E5%8F%96bean%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">3.3 通过注解获取bean对象</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81spring%E4%BE%9D%E8%B5%96%E5%8C%85%E5%85%B3%E7%B3%BB"><span class="post-toc-text">4、spring依赖包关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-1-spring%E6%A0%B8%E5%BF%83jar%E5%8C%85"><span class="post-toc-text">4.1 spring核心jar包</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-2-spring%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="post-toc-text">4.2 spring数据库相关依赖</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-3-springWeb%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="post-toc-text">4.3 springWeb相关依赖</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-4-springAOP%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="post-toc-text">4.4 springAOP相关依赖</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-5-spring%E6%B5%8B%E8%AF%95%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="post-toc-text">4.5 spring测试相关依赖</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/09/16/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/MVC%E5%92%8CSSM%E5%AF%B9%E7%85%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          MVC和SSM对应关系
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/09/16/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/jvm%E7%AE%80%E4%BB%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">jvm简介</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

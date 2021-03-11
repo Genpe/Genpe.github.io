@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mysql常用命令 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="mysql数据库常用命令1、mysql基础操作命令1.1 数据库操作   命令 作用    select database(); 查询当前使用的数据库名称   drop database runoob; 删除数据库   1.2 增删改查操作   命令 作用    update table set value&#x3D;num; 更新数据记录   delete from table; 删除记录   inser">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql常用命令">
+<meta property="og:url" content="http://genpe.top/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="mysql数据库常用命令1、mysql基础操作命令1.1 数据库操作   命令 作用    select database(); 查询当前使用的数据库名称   drop database runoob; 删除数据库   1.2 增删改查操作   命令 作用    update table set value&#x3D;num; 更新数据记录   delete from table; 删除记录   inser">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-10-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-24T02:16:55.055Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/数据库/mysql常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      mysql常用命令
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数据库/">数据库</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-10-13
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="mysql数据库常用命令"><a href="#mysql数据库常用命令" class="headerlink" title="mysql数据库常用命令"></a><center/>mysql数据库常用命令</h4><h5 id="1、mysql基础操作命令"><a href="#1、mysql基础操作命令" class="headerlink" title="1、mysql基础操作命令"></a>1、mysql基础操作命令</h5><h6 id="1-1-数据库操作"><a href="#1-1-数据库操作" class="headerlink" title="1.1 数据库操作"></a>1.1 数据库操作</h6><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>select database();</td>
+<td>查询当前使用的数据库名称</td>
+</tr>
+<tr>
+<td>drop database runoob;</td>
+<td>删除数据库</td>
+</tr>
+</tbody></table>
+<h6 id="1-2-增删改查操作"><a href="#1-2-增删改查操作" class="headerlink" title="1.2 增删改查操作"></a>1.2 增删改查操作</h6><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>update table set value=num;</td>
+<td>更新数据记录</td>
+</tr>
+<tr>
+<td>delete from table;</td>
+<td>删除记录</td>
+</tr>
+<tr>
+<td>insert into table(id,name) value(1,’name’);</td>
+<td>插入记录</td>
+</tr>
+<tr>
+<td>select * from table;</td>
+<td>查询数据</td>
+</tr>
+</tbody></table>
+<h6 id="1-3-索引操作"><a href="#1-3-索引操作" class="headerlink" title="1.3 索引操作"></a>1.3 索引操作</h6><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create index indexname on table_name (column_name)</td>
+<td>创建索引</td>
+</tr>
+<tr>
+<td>alter table tablename add index indexname(columnname)</td>
+<td>修改表结构(添加索引)</td>
+</tr>
+<tr>
+<td>drop index indexname on mytable;</td>
+<td>删除索引的语法</td>
+</tr>
+<tr>
+<td>alter table testalter_tbl modify i int not null;<br/>alter table testalter_tbl add primary key (i);</td>
+<td>添加主键索引,主键作用于列上（可以一个列或多个列联合主键）</td>
+</tr>
+<tr>
+<td>alter table testalter_tbl drop primary key;</td>
+<td>删除主键</td>
+</tr>
+<tr>
+<td>show index from table_name; \g</td>
+<td>显示索引信息</td>
+</tr>
+</tbody></table>
+<h6 id="1-4-表操作"><a href="#1-4-表操作" class="headerlink" title="1.4 表操作"></a>1.4 表操作</h6><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>alter table t_user add column user_age int(11) default null comment ‘年龄’ after user_email;</td>
+<td>插入表字段</td>
+</tr>
+<tr>
+<td>alter table tbl  drop i int;</td>
+<td>删除tbl表的i字段，类型为int</td>
+</tr>
+<tr>
+<td>alter table tbl modify c char(10);</td>
+<td>字段c的类型从char(1)改为char(10)</td>
+</tr>
+<tr>
+<td>alter table tbl change i j bigint;</td>
+<td>在 change 关键字之后，紧跟着的是你要修改的字段名，然后指定新字段名及类型。</td>
+</tr>
+<tr>
+<td>create table employee2  like employee;</td>
+<td>复制一张表</td>
+</tr>
+<tr>
+<td>insert into employee2 select * from employee;</td>
+<td>将一张表的数据插入另一张表</td>
+</tr>
+<tr>
+<td>alter table tbl rename to tbl1;</td>
+<td>修改表名</td>
+</tr>
+<tr>
+<td>delete from table;</td>
+<td>记录日志之后清空表</td>
+</tr>
+<tr>
+<td>truncate table table;</td>
+<td>不记录日志清空表（不可恢复）</td>
+</tr>
+<tr>
+<td>drop table table_name;</td>
+<td>删除表（表结构也会清空）</td>
+</tr>
+<tr>
+<td>alter table table_name auto_increment=1;</td>
+<td>重置表自增字段值序号</td>
+</tr>
+</tbody></table>
+<h6 id="1-5-mysql函数"><a href="#1-5-mysql函数" class="headerlink" title="1.5 mysql函数"></a>1.5 mysql函数</h6><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(case field<br/>when 1 then ‘下雪’<br/>when 2 then ‘下雨’<br/> else ‘晴天’ <br/> end) 天气</td>
+<td>对查询结果进行判断，显示不同的状态，如果field字段查询结果为1则下雪，如果为2则是下雨，相当于java的switch语句。</td>
+</tr>
+<tr>
+<td>group by field</td>
+<td>根据field字段将表查询结果进行分类。</td>
+</tr>
+<tr>
+<td>count（filed）</td>
+<td>查询field字段的记录数,如果为*则是所有的记录数。</td>
+</tr>
+<tr>
+<td>sum（filed）</td>
+<td>对查询的filed字段求和</td>
+</tr>
+</tbody></table>
+<h5 id="2、mysql数据导入导出"><a href="#2、mysql数据导入导出" class="headerlink" title="2、mysql数据导入导出"></a>2、mysql数据导入导出</h5><ul>
+<li>使用 SELECT … INTO OUTFILE 语句导出数据<br>查看数据库允许的输出路径path：<code>SHOW VARIABLES LIKE &quot;secure_file_priv&quot;;</code><br>导出查询结果：<code>select * from table into outfile &#39;path&#39;;</code></li>
+<li>导出SQL格式的数据<br>导出表数据：<code>mysqldump -u root -p database table &gt; save.sql</code><br>导出指定数据库：<code>mysqldump -u root -p database &gt; save.txt</code><br>导出所有数据库：<code>mysqldump -uroot -p&#39;Hello!23456&#39; --events --all-databases --default-character-set=utf8 --hex-blob &gt; /var/www/dbdump/alldb/my.sql</code></li>
+<li>将备份的数据库导入到MySQL服务器中<br>导入表数据：<code>source save.txt;</code><br>导入数据库：<code>mysql -u root -p database &lt; dump.txt</code></li>
+</ul>
+<h5 id="3、mysql数据账号管理"><a href="#3、mysql数据账号管理" class="headerlink" title="3、mysql数据账号管理"></a>3、mysql数据账号管理</h5><ul>
+<li><p>首次安装mysql没有密码验证，开启密码验证</p>
+<ul>
+<li>进入mysql数据库：<code>use mysql;</code></li>
+<li>更改root用户密码：<br><code>update user set password=password(&#39;password&#39;) where user=&#39;root&#39;; </code><br/><code>alter user user() identified by &#39;jing1995&#39;;</code></li>
+<li>重启mysql生效：<code>service mysqld restart</code></li>
+</ul>
+</li>
+<li><p>mysql忘记密码免密登录</p>
+<ul>
+<li>停止mysql： <code>service mysqld stop</code></li>
+<li>在<code>my.cnf</code>中添加<code>skip-grant-tables</code></li>
+<li>启动mysql可以免密登录</li>
+</ul>
+</li>
+<li><p>mysql添加用户</p>
+<ul>
+<li>指定ip连接<br><code>create user &#39;user&#39;@&#39;localhost&#39; identified by &#39;password&#39;;</code></li>
+<li>允许所有ip连接（用通配符%表示）<br><code>create user &#39;user&#39;@&#39;%&#39; identified by &#39;password&#39;;</code></li>
+</ul>
+</li>
+<li><p>mysql删除用户<br><code>DROP USER username@localhost;</code></p>
+</li>
+<li><p>修改后刷新权限<br><code>FLUSH PRIVILEGES;</code></p>
+</li>
+<li><p>为新用户授权数据库访问权限</p>
+<ul>
+<li>基本格式如下:<br><code>grant all privileges on 数据库名.表名 to &#39;新用户名&#39;@&#39;指定ip&#39; identified by &#39;新用户密码&#39;;</code></li>
+<li>允许访问所有数据库下的所有表<br><code>grant all privileges on *.* to &#39;新用户名&#39;@&#39;指定ip&#39; identified by &#39;新用户密码&#39;;</code></li>
+<li>指定数据库下的指定表<br><code>grant all privileges on test.test to &#39;新用户名&#39;@&#39;指定ip&#39; identified by &#39;新用户密码&#39;;</code></li>
+</ul>
+</li>
+<li><p>设置用户操作权限</p>
+<ul>
+<li>设置用户拥有所有权限也就是管理员<br><code>grant all privileges on *.* to &#39;新用户名&#39;@&#39;指定ip&#39; identified by &#39;新用户密码&#39; WITH GRANT OPTION;</code></li>
+<li>拥有查询权限<br><code>grant select on *.* to &#39;新用户名&#39;@&#39;指定ip&#39; identified by &#39;新用户密码&#39; WITH GRANT OPTION;</code></li>
+<li>其它操作权限说明,select查询 insert插入 delete删除 update修改  </li>
+<li>设置用户拥有查询插入的权限<br><code>grant select,insert on *.* to &#39;新用户名&#39;@&#39;指定ip&#39; identified by &#39;新用户密码&#39; WITH GRANT OPTION;</code></li>
+<li>取消用户查询的查询权限<br><code>REVOKE select ON what FROM &#39;新用户名&#39;;</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="4、mysql-union-操作符"><a href="#4、mysql-union-操作符" class="headerlink" title="4、mysql union 操作符"></a>4、mysql union 操作符</h5><ul>
+<li>描述<br>mysql union 操作符用于连接两个以上的 select 语句的结果组合到一个结果集合中。多个 select 语句会删除重复的数据。</li>
+<li>语法    <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs crystal">mysql <span class="hljs-class"><span class="hljs-keyword">union</span> 操作符语法格式：</span><br><span class="hljs-keyword">select</span> expression1, expression2, ... expression_n<br>from tables<br>[where conditions]<br><span class="hljs-class"><span class="hljs-keyword">union</span> [<span class="hljs-title">all</span> | <span class="hljs-title">distinct</span>]</span><br><span class="hljs-keyword">select</span> expression1, expression2, ... expression_n<br>from tables<br>[where conditions];<br></code></pre></td></tr></table></figure></li>
+<li>参数<br><code>expression1, expression2, ... expression_n: </code>要检索的列。<br><code>tables: </code>要检索的数据表。<br><code>where conditions: </code>可选， 检索条件。<br><code>distinct: </code>可选，删除结果集中重复的数据。默认情况下 union 操作符已经删除了重复数据，所以 distinct 修饰符对结果没啥影响。<br><code>all: </code>可选，返回所有结果集，包含重复数据。  </li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年02月24日 10:16</p>
+        <p>原始链接： <a class="post-url" href="/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="mysql常用命令">http://genpe.top/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=《mysql常用命令》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=《mysql常用命令》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql常用命令》 — Genpe&url=http://genpe.top/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/10/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/数据库/" class="color4">数据库</a>
+      
+    <a href="/tags/mysql/" class="color1">mysql</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="post-toc-text">mysql数据库常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1%E3%80%81mysql%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="post-toc-text">1、mysql基础操作命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="post-toc-text">1.1 数据库操作</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-2-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C"><span class="post-toc-text">1.2 增删改查操作</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-3-%E7%B4%A2%E5%BC%95%E6%93%8D%E4%BD%9C"><span class="post-toc-text">1.3 索引操作</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-4-%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="post-toc-text">1.4 表操作</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-5-mysql%E5%87%BD%E6%95%B0"><span class="post-toc-text">1.5 mysql函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2%E3%80%81mysql%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA"><span class="post-toc-text">2、mysql数据导入导出</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3%E3%80%81mysql%E6%95%B0%E6%8D%AE%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86"><span class="post-toc-text">3、mysql数据账号管理</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4%E3%80%81mysql-union-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="post-toc-text">4、mysql union 操作符</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/10/13/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/spingMVC%E7%AE%80%E4%BB%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          spingMVC简介
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/10/12/IOS/xcode%E7%BC%96%E8%AF%91%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">xcode编译设置问题</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mybatis简介 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="1、mybatis简介mybatis是一款orm类型的数据持久化框架，将jdbc的手动注册驱动、建立连接、获取sql执行对象、释放连接等操作进行了自动化装配，只需要进行简单的配置就可以实现自动注册驱动、建立连接、释放连接等操作，开发人员只需要关注sql语句的编写就可以了，而不用过多的关注数据库连接问题。mybatis支持自定义 SQL、存储过程以及高级映射，可以通过sql映射文件实现sql语句的编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis简介">
+<meta property="og:url" content="http://genpe.top/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="1、mybatis简介mybatis是一款orm类型的数据持久化框架，将jdbc的手动注册驱动、建立连接、获取sql执行对象、释放连接等操作进行了自动化装配，只需要进行简单的配置就可以实现自动注册驱动、建立连接、释放连接等操作，开发人员只需要关注sql语句的编写就可以了，而不用过多的关注数据库连接问题。mybatis支持自定义 SQL、存储过程以及高级映射，可以通过sql映射文件实现sql语句的编">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020102113550075.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2020-10-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-21T07:51:35.186Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="JavaFrame">
+<meta property="article:tag" content="mybatis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020102113550075.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/java框架/mybatis简介" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      mybatis简介
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaFrame/">JavaFrame</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-10-20
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="1、mybatis简介"><a href="#1、mybatis简介" class="headerlink" title="1、mybatis简介"></a>1、mybatis简介</h4><p>mybatis是一款orm类型的数据持久化框架，将jdbc的手动注册驱动、建立连接、获取sql执行对象、释放连接等操作进行了自动化装配，只需要进行简单的配置就可以实现自动注册驱动、建立连接、释放连接等操作，开发人员只需要关注sql语句的编写就可以了，而不用过多的关注数据库连接问题。mybatis支持自定义 SQL、存储过程以及高级映射，可以通过sql映射文件实现sql语句的编写，支持动态sql，用条件判断进行查询可以实现sql复用。</p>
+<h4 id="2、mybatis优势"><a href="#2、mybatis优势" class="headerlink" title="2、mybatis优势"></a>2、mybatis优势</h4><ul>
+<li>通过参数映射方式，可以将参数灵活的配置在SQL语句中的配置文件中，避免在Java类中配置参数。</li>
+<li>通过输出映射机制，将结果集的检索自动映射成相应的Java对象，避免对结果集手工检索。</li>
+<li>Mybatis可以通过Xml配置文件对数据库连接进行管理。</li>
+<li>实现了sql和java代码的分离，通过配置文件实现sql语句查询。</li>
+</ul>
+<h4 id="3、执行流程"><a href="#3、执行流程" class="headerlink" title="3、执行流程"></a>3、执行流程</h4><p><img src="https://img-blog.csdnimg.cn/2020102113550075.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="4、获取mybatis对象"><a href="#4、获取mybatis对象" class="headerlink" title="4、获取mybatis对象"></a>4、获取mybatis对象</h4><h5 id="4-1-通过sqlSession获取dao层接口实现类对象"><a href="#4-1-通过sqlSession获取dao层接口实现类对象" class="headerlink" title="4.1 通过sqlSession获取dao层接口实现类对象"></a>4.1 通过sqlSession获取dao层接口实现类对象</h5><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">//mybatis配置文件</span><br>String resource = <span class="hljs-string">&quot;mybatis.xml&quot;</span>;<br><span class="hljs-comment">//加载mybatis全局配置文件    </span><br>InputStream inputStream = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Resources</span>.</span></span>get<span class="hljs-constructor">ResourceAsStream(<span class="hljs-params">resource</span>)</span>;<br>SqlSessionFactoryBuilder builder = <span class="hljs-keyword">new</span> <span class="hljs-constructor">SqlSessionFactoryBuilder()</span>;<br>SqlSessionFactory factory = builder.build(inputStream);<br><span class="hljs-comment">// 非自动提交事务获取sqlSession对象，可携带参数boolean类型</span><br>SqlSession sqlSession = factory.<span class="hljs-keyword">open</span><span class="hljs-constructor">Session()</span>; <br><span class="hljs-comment">//获取dao层接口实现类对象</span><br>StudentDao dao = sqlSession.get<span class="hljs-constructor">Mapper(StudentDao.<span class="hljs-params">class</span>)</span>;  <br></code></pre></td></tr></table></figure>
+
+<h5 id="4-2-通过spring管理获取dao层接口实现类对象"><a href="#4-2-通过spring管理获取dao层接口实现类对象" class="headerlink" title="4.2 通过spring管理获取dao层接口实现类对象"></a>4.2 通过spring管理获取dao层接口实现类对象</h5><ul>
+<li>spring配置文件中配置dao层映射文件扫描器，让spring管理dao层接口实现类对象<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="xml"><span class="hljs-comment">&lt;!--spring配置文件： 声明service，dao，工具类等对象--&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">context:property-placeholder</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;classpath:conf/jdbc.properties&quot;</span> /&gt;</span></span><br><br><span class="xml"><span class="hljs-comment">&lt;!--声明数据源，连接数据库--&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span></span></span><br><span class="xml">      init-method=&quot;init&quot; destroy-method=&quot;close&quot;&gt;</span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;jdbc.url&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> /&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;jdbc.username&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> /&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;jdbc.password&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> /&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><br><span class="xml"><span class="hljs-comment">&lt;!--SqlSessionFactoryBean创建SqlSessionFactory--&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;dataSource&quot;</span> /&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;configLocation&quot;</span>  <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;classpath:conf/mybatis.xml&quot;</span> /&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><br><span class="xml"><span class="hljs-comment">&lt;!--声明mybatis的扫描器，创建dao对象--&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sqlSessionFactoryBeanName&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span> /&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;basePackage&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.bjpowernode.dao&quot;</span> /&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><br><span class="xml"><span class="hljs-comment">&lt;!--声明service的注解@Service所在的包名位置--&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.bjpowernode.service&quot;</span> /&gt;</span></span><br><br></code></pre></td></tr></table></figure></li>
+<li>在java文件中通过注入方式获取dao层接口实现类对象<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs llvm">//引用类型自动注入<span class="hljs-title">@Autowired</span>, <span class="hljs-title">@Resource</span><br><span class="hljs-title">@Resource</span><br><span class="hljs-keyword">private</span> StudentDao studentDao<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="5、mybatis支持的别名"><a href="#5、mybatis支持的别名" class="headerlink" title="5、mybatis支持的别名"></a>5、mybatis支持的别名</h4><table>
+<thead>
+<tr>
+<th>别名</th>
+<th>映射的类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_byte</td>
+<td>byte</td>
+</tr>
+<tr>
+<td>_long</td>
+<td>long</td>
+</tr>
+<tr>
+<td>_short</td>
+<td>short</td>
+</tr>
+<tr>
+<td>_int</td>
+<td>int</td>
+</tr>
+<tr>
+<td>_integer</td>
+<td>int</td>
+</tr>
+<tr>
+<td>_double</td>
+<td>double</td>
+</tr>
+<tr>
+<td>_float</td>
+<td>float</td>
+</tr>
+<tr>
+<td>_boolean</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>bigdecimal</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>map</td>
+<td>Map/HashMap</td>
+</tr>
+</tbody></table>
+<h4 id="5、动态sql语句"><a href="#5、动态sql语句" class="headerlink" title="5、动态sql语句"></a>5、动态sql语句</h4><p>MyBatis的动态SQL是基于OGNL的表达式的。它对SQL语句进行灵活的操作，通过表达式判断来实现对SQL的灵活拼接、组装。</p>
+<h5 id="5-1-与-的区别"><a href="#5-1-与-的区别" class="headerlink" title="5.1 #{}与${}的区别"></a>5.1 <code>#&#123;&#125;</code>与<code>$&#123;&#125;</code>的区别</h5><ul>
+<li><p><code>insert into user (name) values (#&#123;name&#125;); ==&gt; insert into user (name) values (?);</code><br><code>#&#123;&#125;</code>的作用主要是替换预编译语句(PrepareStatement)中的占位符<code>?</code>,可以防止sql注入。</p>
+</li>
+<li><p><code>insert into user (name) values (&#39;$&#123;name&#125;&#39;); ==&gt; insert into user (name) values (&#39;tianshozhi&#39;);</code><br><code>$&#123;&#125;</code>符号的作用是直接进行字符串替换。  </p>
+</li>
+</ul>
+<h5 id="5-2-if元素"><a href="#5-2-if元素" class="headerlink" title="5.2 if元素"></a>5.2 <code>if</code>元素</h5><p>主要用于判断传入参数的有效性，可以动态的对多个字段判断，如果满足条件将会添加到查询语句之中，不满足则不填加。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">&lt;<span class="hljs-keyword">select</span> id=&quot;method&quot; resultType=&quot;type&quot;&gt;<br>    <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = <span class="hljs-string">&#x27;demo&#x27;</span><br>        &lt;<span class="hljs-keyword">if</span> test=&quot;id != null and id != &#x27;&#x27;&quot;&gt;<br>            <span class="hljs-keyword">and</span> id = #&#123;id&#125;<br>        &lt;/<span class="hljs-keyword">if</span>&gt;<br>&lt;/<span class="hljs-keyword">select</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<h5 id="5-3-choose-when-otherwise元素"><a href="#5-3-choose-when-otherwise元素" class="headerlink" title="5.3 choose-when-otherwise元素"></a>5.3 <code>choose-when-otherwise</code>元素</h5><p>类似于java的switch语句，choose相当于switch，when相当于case，otherwise相当于default。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs csharp">&lt;<span class="hljs-keyword">select</span> id=<span class="hljs-string">&quot;method&quot;</span> resultType=<span class="hljs-string">&quot;type&quot;</span>&gt;<br>    <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> table <span class="hljs-keyword">where</span> name = <span class="hljs-string">&#x27;demo&#x27;</span><br>    &lt;choose&gt;  <br>        &lt;<span class="hljs-keyword">when</span> test=<span class="hljs-string">&quot;id != null&quot;</span>&gt;  <br>            and id = <span class="hljs-meta">#&#123;id&#125;</span><br>        &lt;/<span class="hljs-keyword">when</span>&gt;  <br>        &lt;<span class="hljs-keyword">when</span> test=<span class="hljs-string">&quot;email != null&quot;</span>&gt;  <br>            and email = <span class="hljs-meta">#&#123;mail &#125;  </span><br>        &lt;/<span class="hljs-keyword">when</span>&gt;  <br>        &lt;otherwise&gt;  <br>            and age= <span class="hljs-string">&quot;22&quot;</span>  <br>        &lt;/otherwise&gt;  <br>    &lt;/choose&gt;  <br>&lt;/<span class="hljs-keyword">select</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<h5 id="5-4-where元素"><a href="#5-4-where元素" class="headerlink" title="5.4 where元素"></a>5.4 <code>where</code>元素</h5><p>where元素的作用就是在写入where元素的地方插入一个where，可以做一些智能处理:</p>
+<ul>
+<li>如果所有的条件都不满足那么MyBatis就会查出所有的记录</li>
+<li>如果输出后是and 开头的，MyBatis会把第一个and忽略</li>
+<li>在where元素中你不需要考虑空格的问题，MyBatis会智能的帮你加上<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;method&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;type&quot;</span>&gt;</span></span><br><span class="xml">    select * from table</span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">where</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;id != null and id != &#x27;&#x27;&quot;</span>&gt;</span></span><br><span class="xml">            and id = #</span><span class="hljs-template-variable">&#123;id&#125;</span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;mail != null and mail != &#x27;&#x27;&quot;</span>&gt;</span></span><br><span class="xml">            and mail = #</span><span class="hljs-template-variable">&#123;mail&#125;</span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">where</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="5-5-trim元素"><a href="#5-5-trim元素" class="headerlink" title="5.5 trim元素"></a>5.5 <code>trim</code>元素</h5><p>用于处理动态语句中的格式问题，可以去除动态生成sql语句中的多余符号，trim的属性有：<br><code>prefix：</code>加上前缀<br><code>suffix：</code>加上后缀<br><code>suffixOverrides：</code>将尾部的指定内容覆盖掉<br><code>prefixOverrides：</code>将首部的指定内容覆盖掉</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">insert</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;method&quot;</span>&gt;</span></span><br><span class="xml">    insert into table</span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">trim</span> <span class="hljs-attr">prefix</span>=<span class="hljs-string">&quot;(&quot;</span> <span class="hljs-attr">suffix</span>=<span class="hljs-string">&quot;)&quot;</span> <span class="hljs-attr">suffixoverrides</span>=<span class="hljs-string">&quot;,&quot;</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;name != null&quot;</span>&gt;</span></span><br><span class="xml">            name,</span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;id != null&quot;</span>&gt;</span></span><br><span class="xml">            id,</span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">trim</span>&gt;</span></span><br><span class="xml">    values</span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">trim</span> <span class="hljs-attr">prefix</span>=<span class="hljs-string">&quot;(&quot;</span> <span class="hljs-attr">suffix</span>=<span class="hljs-string">&quot;)&quot;</span> <span class="hljs-attr">suffixoverrides</span>=<span class="hljs-string">&quot;,&quot;</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;name != null&quot;</span>&gt;</span></span><br><span class="xml">            #</span><span class="hljs-template-variable">&#123;name&#125;</span><span class="xml">,</span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;id != null&quot;</span>&gt;</span></span><br><span class="xml">            #</span><span class="hljs-template-variable">&#123;id&#125;</span><span class="xml">,</span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">trim</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">insert</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h5 id="5-6-set元素"><a href="#5-6-set元素" class="headerlink" title="5.6 set元素"></a>5.6 <code>set</code>元素</h5><p>set元素主要是用在更新操作的时候，它的功能和where类似，但是包含的内容不能为空，也就是必须有一个if标签内的值不为空。</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">update</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;method&quot;</span>&gt;</span>  </span><br><span class="xml">    update table  </span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">set</span>&gt;</span>  </span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;name != null&quot;</span>&gt;</span>  </span><br><span class="xml">            name = #</span><span class="hljs-template-variable">&#123;name&#125;</span><span class="xml">,  </span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span>  </span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;id != null&quot;</span>&gt;</span>  </span><br><span class="xml">            id = #</span><span class="hljs-template-variable">&#123;id&#125;</span><span class="xml">,  </span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span>  </span><br><span class="xml">    where id = #</span><span class="hljs-template-variable">&#123;id&#125;</span><span class="xml">  </span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">update</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h5 id="5-7-foreach元素"><a href="#5-7-foreach元素" class="headerlink" title="5.7 foreach元素"></a>5.7 <code>foreach</code>元素</h5><p>foreach的主要用在构建in条件中，它可以在SQL语句中进行迭代一个集合，foreach元素的属性主要有:<br><code>item：</code>表示集合中每一个元素进行迭代时的别名;<br><code>index：</code>指定一个名字，用于表示在迭代过程中，每次迭代到的位置;<br><code>open：</code>表示该语句以什么开始;<br><code>separator：</code>表示在每次进行迭代之间以什么符号作为分隔符;<br><code>close：</code>表示以什么结束;  </p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">&lt;<span class="hljs-keyword">delete</span> id=&quot;method&quot;&gt;<br>    <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">where</span> id <span class="hljs-keyword">in</span><br>    &lt;<span class="hljs-keyword">foreach</span> collection=&quot;array&quot; item=&quot;ids&quot; <span class="hljs-keyword">open</span>=&quot;(&quot; separator=&quot;,&quot;<br>        <span class="hljs-keyword">close</span>=&quot;)&quot;&gt;<br>        #&#123;iditem&#125;<br>    &lt;/<span class="hljs-keyword">foreach</span>&gt;<br>&lt;/<span class="hljs-keyword">delete</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<h5 id="5-8-Case-when-then-else-end元素"><a href="#5-8-Case-when-then-else-end元素" class="headerlink" title="5.8 Case-when-then-else-end元素"></a>5.8 <code>Case-when-then-else-end</code>元素</h5><p>类似于三原式表达式，可以通过条件判断得出需要输出的结果。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">   &lt;<span class="hljs-keyword">select</span> id=&quot;method&quot; resulttype=&quot;type&quot;&gt;<br>	<span class="hljs-keyword">select</span><br>		<span class="hljs-type">name</span>,<br>	    (<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> <span class="hljs-type">time</span>&gt;=#&#123;<span class="hljs-keyword">begin</span>&#125; <span class="hljs-keyword">then</span> <span class="hljs-string">&#x27;1001&#x27;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;1002&#x27;</span> <span class="hljs-keyword">end</span>) <span class="hljs-type">time</span><br>	<span class="hljs-keyword">from</span><br>		<span class="hljs-keyword">table</span><br>	<span class="hljs-keyword">where</span><br>		id = #&#123;id&#125;;<br>&lt;/<span class="hljs-keyword">select</span>&gt;<br></code></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年10月21日 15:51</p>
+        <p>原始链接： <a class="post-url" href="/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/" title="mybatis简介">http://genpe.top/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/&title=《mybatis简介》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/&title=《mybatis简介》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mybatis简介》 — Genpe&url=http://genpe.top/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaFrame/" class="color5">JavaFrame</a>
+      
+    <a href="/tags/mybatis/" class="color3">mybatis</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81mybatis%E7%AE%80%E4%BB%8B"><span class="post-toc-text">1、mybatis简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81mybatis%E4%BC%98%E5%8A%BF"><span class="post-toc-text">2、mybatis优势</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="post-toc-text">3、执行流程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81%E8%8E%B7%E5%8F%96mybatis%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">4、获取mybatis对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1-%E9%80%9A%E8%BF%87sqlSession%E8%8E%B7%E5%8F%96dao%E5%B1%82%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E7%B1%BB%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">4.1 通过sqlSession获取dao层接口实现类对象</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-%E9%80%9A%E8%BF%87spring%E7%AE%A1%E7%90%86%E8%8E%B7%E5%8F%96dao%E5%B1%82%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E7%B1%BB%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">4.2 通过spring管理获取dao层接口实现类对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5%E3%80%81mybatis%E6%94%AF%E6%8C%81%E7%9A%84%E5%88%AB%E5%90%8D"><span class="post-toc-text">5、mybatis支持的别名</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5%E3%80%81%E5%8A%A8%E6%80%81sql%E8%AF%AD%E5%8F%A5"><span class="post-toc-text">5、动态sql语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-1-%E4%B8%8E-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">5.1 #&amp;#123;&amp;#125;与$&amp;#123;&amp;#125;的区别</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-2-if%E5%85%83%E7%B4%A0"><span class="post-toc-text">5.2 if元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-3-choose-when-otherwise%E5%85%83%E7%B4%A0"><span class="post-toc-text">5.3 choose-when-otherwise元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-4-where%E5%85%83%E7%B4%A0"><span class="post-toc-text">5.4 where元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-5-trim%E5%85%83%E7%B4%A0"><span class="post-toc-text">5.5 trim元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-6-set%E5%85%83%E7%B4%A0"><span class="post-toc-text">5.6 set元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-7-foreach%E5%85%83%E7%B4%A0"><span class="post-toc-text">5.7 foreach元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-8-Case-when-then-else-end%E5%85%83%E7%B4%A0"><span class="post-toc-text">5.8 Case-when-then-else-end元素</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          java容器总结
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/10/19/java%E5%BC%80%E5%8F%91/javaWeb/URI%E5%92%8CURL/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">URI和URL</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

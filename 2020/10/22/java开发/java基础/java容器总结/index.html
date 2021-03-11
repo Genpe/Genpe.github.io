@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java容器总结 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="1、Java容器类之间的继承关系         2、fail-fast 机制是java集合(Collection)中的一种错误机制。当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。例如：当某一个线程A通过iterator去遍历某集合的过程中，若该集合的内容被其他线程所改变了；那么线程A访问集合时，就会抛出ConcurrentModificationException异">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java容器总结">
+<meta property="og:url" content="http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="1、Java容器类之间的继承关系         2、fail-fast 机制是java集合(Collection)中的一种错误机制。当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。例如：当某一个线程A通过iterator去遍历某集合的过程中，若该集合的内容被其他线程所改变了；那么线程A访问集合时，就会抛出ConcurrentModificationException异">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201022101717610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201022101755492.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201022101810985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2020-10-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-22T02:40:00.020Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="java容器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201022101717610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java开发/java基础/java容器总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java容器总结
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/JavaBase/">JavaBase</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-10-22
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="1、Java容器类之间的继承关系"><a href="#1、Java容器类之间的继承关系" class="headerlink" title="1、Java容器类之间的继承关系"></a>1、Java容器类之间的继承关系</h4><p><img src="https://img-blog.csdnimg.cn/20201022101717610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">  </p>
+<p><img src="https://img-blog.csdnimg.cn/20201022101755492.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">  </p>
+<p><img src="https://img-blog.csdnimg.cn/20201022101810985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmcxOTk1MDkyNQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">  </p>
+<h4 id="2、fail-fast-机制是java集合-Collection-中的一种错误机制。"><a href="#2、fail-fast-机制是java集合-Collection-中的一种错误机制。" class="headerlink" title="2、fail-fast 机制是java集合(Collection)中的一种错误机制。"></a>2、fail-fast 机制是java集合(Collection)中的一种错误机制。</h4><p>当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。例如：当某一个线程A通过iterator去遍历某集合的过程中，若该集合的内容被其他线程所改变了；那么线程A访问集合时，就会抛出ConcurrentModificationException异常，产生fail-fast事件。</p>
+<h4 id="3、Java容器的基本概念"><a href="#3、Java容器的基本概念" class="headerlink" title="3、Java容器的基本概念"></a>3、Java容器的基本概念</h4><p>Java容器类库是用来保存对象的，他有两种不同的概念：  </p>
+<ul>
+<li><code>Collection：</code>独立元素的序列，这些元素都服从一条或多条规则。List、Set以及Queue都是Collection的一种，List必须按照顺序保存元素，而Set不能有重复元素，Queue需要按照排队规则来确定对象的顺序。</li>
+<li><code>Map：</code>Map是键值对类型，允许用户通过键来查找对象。Hash表允许我们使用另一个对象来查找某个对象。</li>
+</ul>
+<h4 id="4、List、set和map"><a href="#4、List、set和map" class="headerlink" title="4、List、set和map"></a>4、List、set和map</h4><ul>
+<li><code>list(对付顺序的好帮手)：</code>List接口存储一组不唯一（可以有多个元素引用相同的对象），有序的对象；</li>
+<li><code>set(注重独一无二的性质)：</code>不允许重复的集合。不会有多个元素引用相同的对象。</li>
+<li><code>map(用Key来搜索的专家)：</code>使用键值对存储。Map会维护与Key有关联的值。两个Key可以引用相同的对象，但Key不能重复，典型的Key是String类型，但也可以是任何对象。</li>
+</ul>
+<h4 id="5、ArrayList和LinkList"><a href="#5、ArrayList和LinkList" class="headerlink" title="5、ArrayList和LinkList"></a>5、ArrayList和LinkList</h4><p>arrylist底层通过数组实现，支持随机访问，但是插入删除操作需要移动元素会特别耗时，linklist底层通过链表实现查找元素需要遍历链表，插入删除操作简单。</p>
+<h4 id="6、ArrayList和Vector"><a href="#6、ArrayList和Vector" class="headerlink" title="6、ArrayList和Vector"></a>6、ArrayList和Vector</h4><p>arraylist是非同步的（线程不安全）在单线程操作的情况下适合使用，vector是同步的（线程安全）在操作时会在同步代码上花费较多时间。</p>
+<h4 id="7、HashMap和HashTable区别"><a href="#7、HashMap和HashTable区别" class="headerlink" title="7、HashMap和HashTable区别"></a>7、HashMap和HashTable区别</h4><ul>
+<li><code>差异：</code>  <ul>
+<li>hashmap是非线程安全的，hashtable是线程安全的，所以hashmap比hashtable的执行效率高</li>
+<li>hashmap支持null值，其键key只能有一个为null，对于值value可以有多个null。hashtable如果键key为null会直接抛出异常。</li>
+<li>hashmap初始化时会分配16的内存大小，之后扩容为当前大小的2倍（2x）。hashtable初始化时会分配11的内存大小，之后扩容时会分配当前大小的2倍加1（2x+1）。</li>
+<li>hashmap在jdk8之后解决哈希冲突时如果链表长度大于8会直接将链表转换成红黑树存储，小于6时又会将红黑树转换成链表存储。hashtable内没有这种机制，都是使用链表存储。</li>
+<li>hashmap继承AbstractMap类，hashtable继承了Dictionary类，由于Dictionary类已经被废弃，所以hashtable也已经废弃。</li>
+<li>Hashtable比HashMap多提供了elments() 和contains() 两个方法。<ul>
+<li>elments() 方法继承自Hashtable的父类Dictionnary。elements() 方法用于返回Hashtable中的value的枚举。</li>
+<li>contains()方法判断该Hashtable是否包含传入的value。它的作用与containsValue()一致。事实上，contansValue() 就只是调用了一下contains() 方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>相同：</code><ul>
+<li>hashtable和hashmap都是通过哈希表实现的</li>
+<li>两者都实现了map、Cloneable（可复制）、Serializable（可序列化）这三个接口。</li>
+</ul>
+</li>
+<li><code>注意：</code><br>当get()方法返回null值时，可能是 HashMap中没有该键，也可能使该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。</li>
+</ul>
+<h4 id="8、ConcurrentHashMap"><a href="#8、ConcurrentHashMap" class="headerlink" title="8、ConcurrentHashMap"></a>8、ConcurrentHashMap</h4><ul>
+<li>底层采用分段的数组+链表实现，线程安全。</li>
+<li>通过把整个Map分为N个Segment，可以提供相同的线程安全，但是效率提升N倍，默认提升16倍。(读操作不加锁，由于HashEntry的value变量是 volatile的，也能保证读取到最新的值。)</li>
+<li>Hashtable的synchronized是针对整张Hash表的，即每次锁住整张表让线程独占，ConcurrentHashMap允许多个修改操作并发进行，其关键在于使用了锁分离技术</li>
+<li>有些方法需要跨段，比如size()和containsValue()，它们可能需要锁定整个表而而不仅仅是某个段，这需要按顺序锁定所有段，操作完毕后，又按顺序释放所有段的锁</li>
+<li>扩容：段内扩容（段内元素超过该段对应Entry数组长度的75%触发扩容，不会对整个Map进行扩容），插入前检测需不需要扩容，有效避免无效扩容</li>
+<li>它是HashTable的替代，比HashTable的扩展性更好。</li>
+<li>首先将数据分为一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据时，其他段的数据也能被其他线程访问。</li>
+<li>jdk8之前一个 ConcurrentHashMap 里包含一个 Segment 数组。Segment 的结构和HashMap类似，是一种数组和链表结构，一个 Segment 包含一个 HashEntry 数组，每个 HashEntry 是一个链表结构的元素，每个 Segment 守护着一个HashEntry数组里的元素，当对 HashEntry 数组的数据进行修改时，必须首先获得对应的 Segment的锁。</li>
+<li>jdk8中ConcurrentHashMap取消了Segment分段锁，采用CAS和synchronized来保证并发安全。数据结构跟HashMap1.8的结构类似，数组+链表/红黑二叉树。Java 8在链表长度超过一定阈值（8）时将链表（寻址时间复杂度为O(N)）转换为红黑树（寻址时间复杂度为O(log(N)) synchronized只锁定当前链表或红黑二叉树的首节点，这样只要hash不冲突，就不会产生并发，效率又提升N倍。</li>
+</ul>
+<h4 id="9、Hashmap和HashSet"><a href="#9、Hashmap和HashSet" class="headerlink" title="9、Hashmap和HashSet"></a>9、Hashmap和HashSet</h4><ul>
+<li>hashset是基于hashmap实现的</li>
+<li>hashmap实现了map接口、存储键值对、调用put方法添加元素、使用key值计算hashcode。</li>
+<li>hashset实现了set接口、仅存储对象、调用add方法添加元素、使用成员对象来计算hashcode值，对于两个对象来说hashcode可能相同，所以equals()方法用来判断对象的相等性。</li>
+<li>当你把对象加入HashSet时，HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调用equals（）方法来检查hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。</li>
+</ul>
+<h4 id="10、comparable-和-Comparator的区别"><a href="#10、comparable-和-Comparator的区别" class="headerlink" title="10、comparable 和 Comparator的区别"></a>10、comparable 和 Comparator的区别</h4><ul>
+<li>comparable接口实际上是出自java.lang包 它有一个 compareTo(Object obj)方法用来排序</li>
+<li>comparator接口实际上是出自 java.util 包它有一个compare(Object obj1, Object obj2)方法用来排序  <br/><br>一般我们需要对一个集合使用自定义排序时，我们就要重写compareTo()方法或compare()方    法，当我们需要对某一个集合实现两种排序方式，比如一个song对象中的歌名和歌手名分别采用一种排序方法的话，我们可以重写compareTo()方法和使用自制的Comparator方法或者以两个Comparator来实现歌名排序和歌星名排序，第二种代表我们只能使用两个参数版的 Collections.sort()。</li>
+</ul>
+<h4 id="11、集合框架底层数据结构总结"><a href="#11、集合框架底层数据结构总结" class="headerlink" title="11、集合框架底层数据结构总结"></a>11、集合框架底层数据结构总结</h4><ul>
+<li><code>List</code><ul>
+<li><code>Arraylist：</code> Object数组</li>
+<li><code>Vector：</code> Object数组</li>
+<li><code>LinkedList：</code> 双向链表(JDK1.6之前为循环链表，JDK1.7取消了循环)</li>
+</ul>
+</li>
+<li><code>Set</code><ul>
+<li><code>HashSet（无序，唯一）:</code> 基于 HashMap 实现的，底层采用 HashMap 来保存元素</li>
+<li><code>LinkedHashSet：</code> LinkedHashSet 继承于 HashSet，并且其内部是通过 LinkedHashMap 来实现的。有点类似于我们之前说的LinkedHashMap 其内部是基于 HashMap 实现一样，不过还是有一点点区别的</li>
+<li><code>TreeSet（有序，唯一）：</code> 红黑树(自平衡的排序二叉树)</li>
+</ul>
+</li>
+<li><code>Map</code><ul>
+<li><code>HashMap：</code> JDK1.8之前HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）。JDK1.8以后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间</li>
+<li><code>LinkedHashMap：</code> LinkedHashMap 继承自 HashMap，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红黑树组成。另外，LinkedHashMap 在上面结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。同时通过对链表进行相应的操作，实现了访问顺序相关逻辑。详细可以查看：《LinkedHashMap 源码详细分析（JDK1.8）》</li>
+<li><code>Hashtable：</code> 数组+链表组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的</li>
+<li><code>TreeMap：</code> 红黑树（自平衡的排序二叉树）</li>
+</ul>
+</li>
+</ul>
+<h4 id="12、如何选用集合"><a href="#12、如何选用集合" class="headerlink" title="12、如何选用集合?"></a>12、如何选用集合?</h4><p>主要根据集合的特点来选用，比如我们需要根据键值获取到元素值时就选用Map接口下的集合，需要排序时选择TreeMap,不需要排序时就选择HashMap,需要保证线程安全就选用ConcurrentHashMap.当我们只需要存放元素值时，就选择实现Collection接口的集合，需要保证元素唯一时选择实现Set接口的集合比如TreeSet或HashSet，不需要就选择实现List接口的比如ArrayList或LinkedList，然后再根据实现这些接口的集合的特点来选用。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年10月22日 10:40</p>
+        <p>原始链接： <a class="post-url" href="/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/" title="java容器总结">http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/&title=《java容器总结》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/&title=《java容器总结》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java容器总结》 — Genpe&url=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java容器/" class="color2">java容器</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81Java%E5%AE%B9%E5%99%A8%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB"><span class="post-toc-text">1、Java容器类之间的继承关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81fail-fast-%E6%9C%BA%E5%88%B6%E6%98%AFjava%E9%9B%86%E5%90%88-Collection-%E4%B8%AD%E7%9A%84%E4%B8%80%E7%A7%8D%E9%94%99%E8%AF%AF%E6%9C%BA%E5%88%B6%E3%80%82"><span class="post-toc-text">2、fail-fast 机制是java集合(Collection)中的一种错误机制。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81Java%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="post-toc-text">3、Java容器的基本概念</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81List%E3%80%81set%E5%92%8Cmap"><span class="post-toc-text">4、List、set和map</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5%E3%80%81ArrayList%E5%92%8CLinkList"><span class="post-toc-text">5、ArrayList和LinkList</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6%E3%80%81ArrayList%E5%92%8CVector"><span class="post-toc-text">6、ArrayList和Vector</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7%E3%80%81HashMap%E5%92%8CHashTable%E5%8C%BA%E5%88%AB"><span class="post-toc-text">7、HashMap和HashTable区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8%E3%80%81ConcurrentHashMap"><span class="post-toc-text">8、ConcurrentHashMap</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9%E3%80%81Hashmap%E5%92%8CHashSet"><span class="post-toc-text">9、Hashmap和HashSet</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#10%E3%80%81comparable-%E5%92%8C-Comparator%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">10、comparable 和 Comparator的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11%E3%80%81%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93"><span class="post-toc-text">11、集合框架底层数据结构总结</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#12%E3%80%81%E5%A6%82%E4%BD%95%E9%80%89%E7%94%A8%E9%9B%86%E5%90%88"><span class="post-toc-text">12、如何选用集合?</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/10/22/java%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          java基础总结
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/10/20/java%E5%BC%80%E5%8F%91/java%E6%A1%86%E6%9E%B6/mybatis%E7%AE%80%E4%BB%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">mybatis简介</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

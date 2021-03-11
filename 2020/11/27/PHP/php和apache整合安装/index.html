@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>php和apache整合安装 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="1、apache配置 VirtualHost中添加php模块配置  123&lt;FilesMatch &quot;\.php$&quot;&gt;    SetHandler application&#x2F;x-httpd-php&lt;&#x2F;FilesMatch&gt; apxs2找不到  sudo apt-get install apache2-dev  2、php安装PS: php7.0- *软件包已">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php和apache整合安装">
+<meta property="og:url" content="http://genpe.top/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="1、apache配置 VirtualHost中添加php模块配置  123&lt;FilesMatch &quot;\.php$&quot;&gt;    SetHandler application&#x2F;x-httpd-php&lt;&#x2F;FilesMatch&gt; apxs2找不到  sudo apt-get install apache2-dev  2、php安装PS: php7.0- *软件包已">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-11-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-27T01:28:06.465Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="apache">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-PHP/php和apache整合安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      php和apache整合安装
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/PHP/">PHP</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-11-27
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="1、apache配置"><a href="#1、apache配置" class="headerlink" title="1、apache配置"></a>1、apache配置</h4><ul>
+<li>VirtualHost中添加php模块配置  <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-section">&lt;FilesMatch <span class="hljs-string">&quot;\.php$&quot;</span>&gt;</span><br>    <span class="hljs-attribute"><span class="hljs-nomarkup">SetHandler</span></span> application/x-httpd-php<br><span class="hljs-section">&lt;/FilesMatch&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li>apxs2找不到<br>  <code>sudo apt-get install apache2-dev</code></li>
+</ul>
+<h4 id="2、php安装"><a href="#2、php安装" class="headerlink" title="2、php安装"></a>2、php安装</h4><p><code>PS: </code>php7.0- *软件包已从ppa：ondrej / php repo的Ubuntu 15.04版本中删除,但在15.10版本中可用.</p>
+<h5 id="2-1-php源码安装"><a href="#2-1-php源码安装" class="headerlink" title="2.1 php源码安装"></a>2.1 php源码安装</h5><ul>
+<li>安装配置  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/configure --prefix=/u</span>sr<span class="hljs-regexp">/local/</span>php-<span class="hljs-number">7.2</span> --with-apxs2=<span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/apxs2 --with-config-file-path=/u</span>sr<span class="hljs-regexp">/local/</span>php-<span class="hljs-number">7.2</span>/etc --enable-maintainer-zts  --enable-sockets --enable-fpm <br></code></pre></td></tr></table></figure></li>
+<li>编译命令<br>  <code>make &amp;&amp; makeinstall</code></li>
+</ul>
+<h5 id="2-2-扩展安装"><a href="#2-2-扩展安装" class="headerlink" title="2.2 扩展安装"></a>2.2 扩展安装</h5><ul>
+<li><p>常见问题</p>
+<ul>
+<li><p>进入etx目录下可以看到扩展的源码目录，选择对应的源码目录进入；</p>
+</li>
+<li><p>使用phpize命令生成configure执行文件，如果找不到phpize文件可以去php的安装目录的bin目录下找到，将其软连接到/usr/bin目录下就可以直接使用了</p>
+</li>
+<li><p>添加扩展模块时有时会遇到</p>
+<figure class="highlight plain"><figcaption><span>unknown type name ‘zend_string’ zend_string *hash_key```, 是因为在编译php7的扩展时，用到的是php5的环境，但是php5 里面没有zend_string类型，所以应该升级php5的环境到php7，或者在配置时指定php编译环境的配置。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs error:">&#96;.&#x2F;configure --with-php-config&#x3D;&#x2F;usr&#x2F;local&#x2F;php-7.2&#x2F;bin&#x2F;php-config&#96;<br><br>* 编译插件时常见的NotFound错误解决方案：<br></code></pre></td></tr></table></figure>
+<p>  configure: error: libxml2 not found. Please check your libxml2 installation.<br>  apt install libxml2-dev</p>
+<p>  configure: error: jpeglib.h not found.<br>  apt install libjpeg-dev</p>
+<p>  configure: error: png.h not found.<br>  apt install libpng-dev</p>
+<p>  configure: error: freetype-config not found<br>  apt install libfreetype6-dev</p>
+<p>  configure: error: mcrypt.h not found. Please reinstall libmcrypt<br>  apt install libmcrypt-dev</p>
+<p>  configure: error: xslt-config not found. Please reinstall the libxslt &gt;= 1.1.0 distribution<br>  apt install libxslt1-dev</p>
+  <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>pdo<span class="hljs-emphasis">_mysql安装</span><br></code></pre></td></tr></table></figure>
+<p>查找mysql安装路径：find / -name mysql.h<br>生成makefile文件：./configure –with-php-config=/usr/local/php-7.2/bin/php-config –with-pdo-mysql=/usr</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>mysqli安装<br></code></pre></td></tr></table></figure>
+<p>查找mysql_config路径：find / -name mysql_config<br>生成makefile文件：./configure –with-php-config=/usr/local/php-7.2/bin/php-config –with-mysqli=/usr/bin/mysql_config</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>bz2安装<br></code></pre></td></tr></table></figure>
+<p>生成makefile文件时报错：configure: error: Please reinstall the BZip2 distribution<br>安装bzip2和libbz2-dev<br>apt  install -y bzip2*<br>apt-get install libbz2-dev<br>生成makefile文件：./configure –with-php-config=/usr/local/php-7.2/bin/php-config –with-bz2</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>curl安装<br></code></pre></td></tr></table></figure>
+<p>生成makefile文件时报错：configure: error: Please reinstall the libcurl distribution<br>安装curl和libcurl4-gnutls-dev<br>apt-get install curl<br>apt-get install libcurl4-gnutls-dev<br>生成makefile文件：./configure –with-php-config=/usr/local/php-7.2/bin/php-config –with-curl=/usr/local/lib/curl</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">* gd2安装  </span><br>	预安装：<br><span class="hljs-comment">	* 安装libjpeg jpeg-9b</span><br></code></pre></td></tr></table></figure>
+<p>  wget <a target="_blank" rel="noopener" href="http://www.ijg.org/files/jpegsrc.v9d.tar.gz">http://www.ijg.org/files/jpegsrc.v9d.tar.gz</a><br>  ./configure –prefix=/usr/local/libjpeg –enable-shared</p>
+  <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>安装freetype2<br></code></pre></td></tr></table></figure>
+<p>  wget <a target="_blank" rel="noopener" href="http://download.savannah.gnu.org/releases/freetype/freetype-2.7.tar.gz">http://download.savannah.gnu.org/releases/freetype/freetype-2.7.tar.gz</a><br>  ./configure –prefix=/usr/local/freetype2</p>
+  <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>安装libpng<br></code></pre></td></tr></table></figure>
+<p>  wget <a target="_blank" rel="noopener" href="https://nchc.dl.sourceforge.net/project/libpng/libpng16/1.6.37/libpng-1.6.37.tar.xz">https://nchc.dl.sourceforge.net/project/libpng/libpng16/1.6.37/libpng-1.6.37.tar.xz</a><br>  ./configure –prefix=/usr/local/libpng</p>
+  <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>安装zlib<br></code></pre></td></tr></table></figure>
+<p>  wget <a target="_blank" rel="noopener" href="http://www.zlib.net/zlib-1.2.11.tar.gz">http://www.zlib.net/zlib-1.2.11.tar.gz</a><br>  ./configure –prefix=/usr/local/zlib</p>
+  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">```<br>	生成makefile文件：.<span class="hljs-regexp">/configure --with-php-config=/u</span>sr<span class="hljs-regexp">/local/</span>php-<span class="hljs-number">7.2</span><span class="hljs-regexp">/bin/</span>php-config --with-jpeg-dir=<span class="hljs-regexp">/user/</span>local<span class="hljs-regexp">/libjpeg --with-png-dir=/u</span>ser<span class="hljs-regexp">/local/</span>libpng --with-freetype-dir=<span class="hljs-regexp">/user/</span>local<span class="hljs-regexp">/freetype2 --with-zlib-dir=/u</span>ser<span class="hljs-regexp">/local/</span>zlib<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>intl安装</p>
+  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">生成makefile文件：.<span class="hljs-regexp">/configure --with-php-config=/u</span>sr<span class="hljs-regexp">/local/</span>php-<span class="hljs-number">7.2</span><span class="hljs-regexp">/bin/</span>php-config  --enable-intl<br></code></pre></td></tr></table></figure></li>
+<li><p>exif安装</p>
+  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">生成makefile文件： .<span class="hljs-regexp">/configure --with-php-config=/u</span>sr<span class="hljs-regexp">/local/</span>php-<span class="hljs-number">7.2</span><span class="hljs-regexp">/bin/</span>php-config<br></code></pre></td></tr></table></figure></li>
+<li><p>mbstring安装</p>
+  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">生成makefile文件： .<span class="hljs-regexp">/configure --with-php-config=/u</span>sr<span class="hljs-regexp">/local/</span>php-<span class="hljs-number">7.2</span><span class="hljs-regexp">/bin/</span>php-config<br></code></pre></td></tr></table></figure></li>
+<li><p>soap安装</p>
+  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">生成makefile文件：.<span class="hljs-regexp">/configure --with-php-config=/u</span>sr<span class="hljs-regexp">/local/</span>php-<span class="hljs-number">7.2</span><span class="hljs-regexp">/bin/</span>php-config --enable-soap<br></code></pre></td></tr></table></figure></li>
+<li><p>xsl安装</p>
+  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">生成makefile文件： .<span class="hljs-regexp">/configure --with-php-config=/u</span>sr<span class="hljs-regexp">/local/</span>php-<span class="hljs-number">7.2</span><span class="hljs-regexp">/bin/</span>php-config<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年11月27日 09:28</p>
+        <p>原始链接： <a class="post-url" href="/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/" title="php和apache整合安装">http://genpe.top/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/&title=《php和apache整合安装》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/&title=《php和apache整合安装》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《php和apache整合安装》 — Genpe&url=http://genpe.top/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/11/27/PHP/php%E5%92%8Capache%E6%95%B4%E5%90%88%E5%AE%89%E8%A3%85/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/PHP/" class="color4">PHP</a>
+      
+    <a href="/tags/apache/" class="color2">apache</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81apache%E9%85%8D%E7%BD%AE"><span class="post-toc-text">1、apache配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81php%E5%AE%89%E8%A3%85"><span class="post-toc-text">2、php安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-php%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85"><span class="post-toc-text">2.1 php源码安装</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-2-%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85"><span class="post-toc-text">2.2 扩展安装</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/11/27/PHP/PHP%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          PHP常用方法
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/11/13/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql%E4%BC%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">mysql优化</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

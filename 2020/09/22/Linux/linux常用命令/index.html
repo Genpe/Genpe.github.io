@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>linux常用命令 | Genpe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="linux常用命令汇总1、linux系统基础操作命令 基础命令   命令 作用    lscpu 显示cpu架构信息   uname -a 查看系统信息   cat &#x2F;proc&#x2F;cpuinfo 查看CPU详细信息   free -m 内存使用情况   lsblk 列出块设备，其中，TYPE&#x3D;disk表示硬盘。   df 查看硬盘使用情况   df -i 硬盘inode使用情况   cat &#x2F;pro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用命令">
+<meta property="og:url" content="http://genpe.top/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="Genpe">
+<meta property="og:description" content="linux常用命令汇总1、linux系统基础操作命令 基础命令   命令 作用    lscpu 显示cpu架构信息   uname -a 查看系统信息   cat &#x2F;proc&#x2F;cpuinfo 查看CPU详细信息   free -m 内存使用情况   lsblk 列出块设备，其中，TYPE&#x3D;disk表示硬盘。   df 查看硬盘使用情况   df -i 硬盘inode使用情况   cat &#x2F;pro">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-09-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-30T03:33:48.941Z">
+<meta property="article:author" content="Genpe">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/icon/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Genpe</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/icon/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Genpe
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Genpe"  href="/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Genpe">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="743850474"  ">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="jing_95925"  ">
+                            <i class="fa fa-weixin fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Linux/linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      linux常用命令
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Linux/">Linux</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-09-22
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="linux常用命令汇总"><a href="#linux常用命令汇总" class="headerlink" title="linux常用命令汇总"></a>linux常用命令汇总</h3><h4 id="1、linux系统基础操作命令"><a href="#1、linux系统基础操作命令" class="headerlink" title="1、linux系统基础操作命令"></a>1、linux系统基础操作命令</h4><ul>
+<li>基础命令<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lscpu</td>
+<td>显示cpu架构信息</td>
+</tr>
+<tr>
+<td>uname -a</td>
+<td>查看系统信息</td>
+</tr>
+<tr>
+<td>cat /proc/cpuinfo</td>
+<td>查看CPU详细信息</td>
+</tr>
+<tr>
+<td>free -m</td>
+<td>内存使用情况</td>
+</tr>
+<tr>
+<td>lsblk</td>
+<td>列出块设备，其中，TYPE=disk表示硬盘。</td>
+</tr>
+<tr>
+<td>df</td>
+<td>查看硬盘使用情况</td>
+</tr>
+<tr>
+<td>df -i</td>
+<td>硬盘inode使用情况</td>
+</tr>
+<tr>
+<td>cat /proc/version</td>
+<td>Linux查看当前操作系统版本信息</td>
+</tr>
+<tr>
+<td>lsb_release -a</td>
+<td>查看系统版本信息的命令</td>
+</tr>
+<tr>
+<td>ifconfig<br/> or ip addr</td>
+<td>查看ip</td>
+</tr>
+<tr>
+<td>crontab -e</td>
+<td>查看编辑定时脚本</td>
+</tr>
+<tr>
+<td>nohup ./rsync.sh &amp;</td>
+<td>nohup 的用途就是让提交的命令忽略 hangup 信号，标准输出和标准错误缺省会被重定向到 nohup.out 文件中。。一般我们可在结尾加上”&amp;”来将命令同时放入后台运行，也可用” &gt; log.out 2&gt;&amp;1”来更改缺省的重定向文件名。</td>
+</tr>
+<tr>
+<td>du -ahskm 文件或者目录名</td>
+<td>查看文件大小<br/>参数：<br/>-a ： 列出所有的文件与目录容量，因为默认仅统计目录的容量而已<br/>-h: 以人们较易读的容量格式呈现(G/M/K)显示，自动选择显示的单位大小<br/>-s : 列出总量而已，而不列出每个个别的目录占用容量<br/>-k ： 以KB为单位进行显示<br/>-m : 以MB为单位进行显示常用命令参考</td>
+</tr>
+<tr>
+<td>wc -clmw 输入流</td>
+<td>可用于统计行数，字节数和字符数等，而用于统计命令执行结果的数量的时候非常有效。<br/>参数：<br/>-c 统计字节数。<br/>-l 统计行数。<br/>-m 统计字符数。这个标志不能与 -c 标志一起使用。<br/>-w 统计字数。注意，这里的字指的是由空格，换行符等分隔的字符串。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="2、tar压缩和解压文件"><a href="#2、tar压缩和解压文件" class="headerlink" title="2、tar压缩和解压文件"></a>2、tar压缩和解压文件</h4><ul>
+<li>基础命令    <table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tar -zcvf test.tar.gz ./test/</td>
+<td>压缩当前文件夹下的文件夹test，压缩后缀名为test.tar.gz</td>
+</tr>
+<tr>
+<td>tar -cvf test.tar ./test/</td>
+<td>压缩当前文件夹下的文件夹test，压缩后缀名为test.tar</td>
+</tr>
+<tr>
+<td>tar -xzvf test.tar.gz</td>
+<td>把后缀为.tar.gz的文件解压到当前文件夹下。</td>
+</tr>
+<tr>
+<td>tar -xzvf test.tar.gz -C /home/test/</td>
+<td>将后缀为.tar.gz的文件夹解压到/home/test/文件夹下</td>
+</tr>
+<tr>
+<td>tar -xvf test.tar</td>
+<td>把后缀为.tar的文件解压到当前文件夹下。</td>
+</tr>
+<tr>
+<td>tar -xvf test.tar -C /home/test/</td>
+<td>将后缀为.tar的文件夹解压到/home/test/文件夹下</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="3、ubuntu安装软件apt工具命令"><a href="#3、ubuntu安装软件apt工具命令" class="headerlink" title="3、ubuntu安装软件apt工具命令"></a>3、ubuntu安装软件apt工具命令</h4><ul>
+<li>基础命令<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>apt update</td>
+<td>从软件源服务器获取最新的软件信息并缓存到本地。因为很多apt的其他命令都是要通过比对版本信息来进行操作的，如果每次都去对比线上的版本信息效率肯定不理想，也没必要，所以做了一个缓存的机制。</td>
+</tr>
+<tr>
+<td>apt upgrade</td>
+<td>从本地仓库中对比系统中所有已安装的软件，如果有新版本的话则进行升级</td>
+</tr>
+<tr>
+<td>apt list</td>
+<td>列出本地仓库中所有的软件包名</td>
+</tr>
+<tr>
+<td>apt list [package]</td>
+<td>从本地仓库中查找指定的包名，支持通配符，比如”apt list zlib*”就能列出以zlib开头的所有包名</td>
+</tr>
+<tr>
+<td>apt list –installed</td>
+<td>列出系统中所有已安装的包名</td>
+</tr>
+<tr>
+<td>apt search [key]</td>
+<td>与list类似，通过给出的关键字进行搜索，列出所有的包和其描述</td>
+</tr>
+<tr>
+<td>apt show [package]</td>
+<td>列出指定包的详细情况，包名要填写完整。</td>
+</tr>
+<tr>
+<td>apt install [package]</td>
+<td>安装指定的包，并同时安装其依赖的其他包。</td>
+</tr>
+<tr>
+<td>apt remove [package]</td>
+<td>卸载包，但不删除相关配置文件。包名支持通配符</td>
+</tr>
+<tr>
+<td>apt autoremove</td>
+<td>卸载因安装软件自动安装的依赖，而现在又不需要的依赖包</td>
+</tr>
+<tr>
+<td>apt purge [package]</td>
+<td>卸载包，同时删除相关配置文件。包名支持通配符</td>
+</tr>
+<tr>
+<td>apt clean</td>
+<td>删除所有已下载的软件包</td>
+</tr>
+<tr>
+<td>apt autoclean</td>
+<td>类似clean，但删除的是过期的包（即已不能下载或者是无用的包）</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="4、ps查看进程运行状态"><a href="#4、ps查看进程运行状态" class="headerlink" title="4、ps查看进程运行状态"></a>4、ps查看进程运行状态</h4><ul>
+<li><p>基础命令</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-A</td>
+<td>显示所有进程（等价于-e）(utility)</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>显示一个终端的所有进程，除了会话引线</td>
+</tr>
+<tr>
+<td>-N</td>
+<td>忽略选择。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示所有进程，但省略所有的会话引线(utility)</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>显示没有控制终端的进程，同时显示各个命令的具体路径。dx不可合用。（utility）</td>
+</tr>
+<tr>
+<td>-p pid</td>
+<td>进程使用cpu的时间</td>
+</tr>
+<tr>
+<td>-u uid or username</td>
+<td>选择有效的用户id或者是用户名</td>
+</tr>
+<tr>
+<td>-g gid or groupname</td>
+<td>显示组的所有进程。</td>
+</tr>
+<tr>
+<td>U username</td>
+<td>显示该用户下的所有进程，且显示各个命令的详细路径。如:ps U zhang;(utility)</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>全部列出，通常和其他选项联用。如：ps -fa or ps -fx and so on.</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>长格式（有F,wchan,C 等字段）</td>
+</tr>
+<tr>
+<td>-j</td>
+<td>作业格式</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>用户自定义格式。</td>
+</tr>
+<tr>
+<td>v</td>
+<td>以虚拟存储器格式显示</td>
+</tr>
+<tr>
+<td>s</td>
+<td>以信号格式显示</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>显示所有的线程</td>
+</tr>
+<tr>
+<td>-H</td>
+<td>显示进程的层次(和其它的命令合用，如：ps -Ha)（utility）</td>
+</tr>
+<tr>
+<td>e</td>
+<td>命令之后显示环境（如：ps -d e; ps -a e）(utility)</td>
+</tr>
+<tr>
+<td>h</td>
+<td>不显示第一行</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>组合命令使用技巧  </p>
+<ul>
+<li>查看应用程序的启动用户<br><code>ps aux | grep &quot;nginx: worker process&quot; | awk &#39;&#123;print $1&#125;&#39;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="5、netstat查看网络连接状态"><a href="#5、netstat查看网络连接状态" class="headerlink" title="5、netstat查看网络连接状态"></a>5、netstat查看网络连接状态</h4><ul>
+<li><p>基础命令</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a   或–all</td>
+<td>显示所有连线中的Socket。</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>&lt;网络类型&gt;或–&lt;网络类型&gt; 列出该网络类型连线中的相关地址。</td>
+</tr>
+<tr>
+<td>-c   或–continuous</td>
+<td>持续列出网络状态。</td>
+</tr>
+<tr>
+<td>-C 或–cache</td>
+<td>显示路由器配置的快取信息。</td>
+</tr>
+<tr>
+<td>-e  或–extend</td>
+<td>显示网络其他相关信息。</td>
+</tr>
+<tr>
+<td>-F  或 –fib</td>
+<td>显示FIB。</td>
+</tr>
+<tr>
+<td>-g  或–groups</td>
+<td>显示多重广播功能群组组员名单。</td>
+</tr>
+<tr>
+<td>-h  或–help</td>
+<td>在线帮助。</td>
+</tr>
+<tr>
+<td>-i   或–interfaces</td>
+<td>显示网络界面信息表单。</td>
+</tr>
+<tr>
+<td>-l  或–listening</td>
+<td>显示监控中的服务器的Socket。</td>
+</tr>
+<tr>
+<td>-M   或–masquerade</td>
+<td>显示伪装的网络连线。</td>
+</tr>
+<tr>
+<td>-n  或–numeric</td>
+<td>直接使用IP地址，而不通过域名服务器。</td>
+</tr>
+<tr>
+<td>-N   或–netlink或–symbolic</td>
+<td>显示网络硬件外围设备的符号连接名称。</td>
+</tr>
+<tr>
+<td>-o  或–timers</td>
+<td>显示计时器。</td>
+</tr>
+<tr>
+<td>-p   或–programs</td>
+<td>显示正在使用Socket的程序识别码和程序名称。</td>
+</tr>
+<tr>
+<td>-r  或–route</td>
+<td>显示 Routing Table。</td>
+</tr>
+<tr>
+<td>-s  或–statistice</td>
+<td>显示网络工作信息统计表。</td>
+</tr>
+<tr>
+<td>-t  或–tcp</td>
+<td>显示TCP 传输协议的连线状况。</td>
+</tr>
+<tr>
+<td>-u或–udp</td>
+<td>显示UDP传输协议的连线状况。</td>
+</tr>
+<tr>
+<td>-v或–verbose</td>
+<td>显示指令执行过程。</td>
+</tr>
+<tr>
+<td>-V 或–version</td>
+<td>显示版本信息。</td>
+</tr>
+<tr>
+<td>-w或–raw</td>
+<td>显示RAW传输协议的连线状况。</td>
+</tr>
+<tr>
+<td>-x或–unix</td>
+<td>此参数的效果和指定”-A unix”参数相同。</td>
+</tr>
+<tr>
+<td>–ip或–inet</td>
+<td>此参数的效果和指定”-A inet”参数相同。</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>组合命令使用技巧  </p>
+<ul>
+<li>清除陷入CLOSE_WAIT的进程<br><code>netstat -nap |grep :1024|grep appname|grep CLOSE_WAIT | awk &#39;&#123;print $7&#125;&#39;|awk -F&quot;\/&quot; &#39;&#123;print $1&#125;&#39; |awk &#39;!a[$1]++&#39;  |xargs kill</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="6、防火墙操作命令"><a href="#6、防火墙操作命令" class="headerlink" title="6、防火墙操作命令"></a>6、防火墙操作命令</h4><ul>
+<li>基础命令<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firewall-cmd –state<br/> or systemctl status firewalld.service</td>
+<td>查看防火墙运行状态</td>
+</tr>
+<tr>
+<td>systemctl stop firewalld.service</td>
+<td>关闭防火墙</td>
+</tr>
+<tr>
+<td>systemctl start firewalld.service</td>
+<td>开启防火墙</td>
+</tr>
+<tr>
+<td>systemctl restart firewalld.service</td>
+<td>重启防火墙</td>
+</tr>
+<tr>
+<td>systemctl enable firewalld.service</td>
+<td>在开机时启动一个服务(这里启动防火墙)</td>
+</tr>
+<tr>
+<td>systemctl disable firewalld.service</td>
+<td>在开机时禁止一个服务（这里禁止防火墙）</td>
+</tr>
+<tr>
+<td>systemctl is-enabled firewalld.service;echo $?</td>
+<td>查看一个服务是否开机启动</td>
+</tr>
+<tr>
+<td>systemctl list-unit-files |grep enable</td>
+<td>查看已启动的服务列表</td>
+</tr>
+<tr>
+<td>systemctl status 服务名称</td>
+<td>显示一个服务的状态</td>
+</tr>
+<tr>
+<td>firewall-cmd –zone=public –list-ports</td>
+<td>查看开启了哪些端口</td>
+</tr>
+<tr>
+<td>firewall-cmd –list-services</td>
+<td>查看开启了哪些服务</td>
+</tr>
+<tr>
+<td>firewall-cmd –zone=public –remove-port=80/tcp –permanent</td>
+<td>删除端口</td>
+</tr>
+<tr>
+<td>firewall-cmd –zone=public –add-port=8080/tcp –permanent</td>
+<td>添加端口外部访问权限</td>
+</tr>
+<tr>
+<td>firewall-cmd –reload</td>
+<td>重新载入，添加端口后重新载入才能起作用</td>
+</tr>
+<tr>
+<td>firewall-cmd –get-services</td>
+<td>查看还有哪些服务可以打开</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="7、服务器性能监测"><a href="#7、服务器性能监测" class="headerlink" title="7、服务器性能监测"></a>7、服务器性能监测</h4><ul>
+<li>基础命令<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>top</td>
+<td>能够实时监控系统的运行状态，并且可以按照cpu及内存等进行排序；<br/><code>参数</code><br/>-p：监控指定的进程，当监控多个进程是，进程ID以逗号隔开<br/> <code>监控时指令</code><br/>M：按内存使用率排序<br/> P：按CPU使用率排序 <br/> z：彩色/黑白显示<br/> <code>属性意义</code><br/>load average：系统的运行队列的平均利用率，也可以认为是可运行进程的平均数。三个值分别表示在最后1分钟、5分钟、15分钟的平均负载值；<br/>us：user<br/>    sy：system<br/>    id：idle 空闲<br/>    Mem：内存<br/>    Swap：虚拟内存</td>
+</tr>
+<tr>
+<td>vmstat</td>
+<td>可以监控操作系统的进程状态、内存、虚拟内存、磁盘IO、cpu；<br/><code>语法</code> <br/>vmstat -a -n -S unit delay count<br/> -S:使用指定单位显示。参数有k、K、m、M、分别表示1000、1024、1000000、1048576字节（byte）。默认单位为K（1024bytes）<br/>vmstat num1 num2 <br/>内存、cpu的动态监控：第1个参数：时间间隔 第2个参数：显示次数</td>
+</tr>
+<tr>
+<td>mpstat</td>
+<td>mpstat最大的特点：可以查看多核心cpu中每个计算核心的统计数据；当没有参数时，mpstat则显示系统启动以后所有信息的平均值；有internal时，第一行的信息来自系统启动以来的平均信息；从第二行开始，输出为前一个internal时间段的平均信息；<br/><code>语法</code> <br/>mpstat -p num internal count<br/> -P  标识监控哪个CPU，cpu在[0,cpu个数-1]中取值<br/> -A 监控所有cpu，分开显示<br/>internal：相邻的两次采样的间隔时间<br/> count：采样的次数，count只能和delay一起<br/><code>使用案例</code> <br/> mpstat -P 0 (监控cpu 0)<br/>mpstat 1 5 （间隔1秒，监控5次）</td>
+</tr>
+<tr>
+<td>free</td>
+<td>能够监控系统的内存使用状态。其中，total：总计物理内存的大小；<br/><code>语法</code><br/>free：统计的单位是K <br/>free -m：统计出的单位是M <br/> <code>属性意义</code> <br/>Used：已使用多大 <br/>Free：可用有多少 <br/> shared：多个进程共享的内存总额<br/>buffers/cached：磁盘缓存的大小 <br/></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="8、用户管理操作"><a href="#8、用户管理操作" class="headerlink" title="8、用户管理操作"></a>8、用户管理操作</h4><ul>
+<li>基础命令<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>useradd username</td>
+<td>使用root账户创建新用户</td>
+</tr>
+<tr>
+<td>passwd username</td>
+<td>修改新增的用户的密码</td>
+</tr>
+<tr>
+<td>userdel username</td>
+<td>删除用户</td>
+</tr>
+<tr>
+<td>usermod –l user username</td>
+<td>将用户 username的登录名改为user</td>
+</tr>
+<tr>
+<td>usermod –g users user</td>
+<td>将用户user加入到 users组中</td>
+</tr>
+<tr>
+<td>usermod –d /users/user username</td>
+<td>将username的用户目录改为/users/user</td>
+</tr>
+<tr>
+<td>id user</td>
+<td>查看一个用户的UID和GID</td>
+</tr>
+<tr>
+<td>finger user</td>
+<td>查看用户的主目录、启动shell、用户名、地址、电话等信息</td>
+</tr>
+<tr>
+<td>groupadd –g 888 users</td>
+<td>创建用户组</td>
+</tr>
+<tr>
+<td>gpasswd –a user users</td>
+<td>把 user1加入users组</td>
+</tr>
+<tr>
+<td>gpasswd –d user users</td>
+<td>把 user1退出users组</td>
+</tr>
+<tr>
+<td>groupmod –n user users</td>
+<td>修改组名user为users</td>
+</tr>
+<tr>
+<td>groupdel users</td>
+<td>删除组users</td>
+</tr>
+<tr>
+<td>useradd genpe -g users</td>
+<td>创建genpe用户并添加到users组中</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="9、配置环境变量"><a href="#9、配置环境变量" class="headerlink" title="9、配置环境变量"></a>9、配置环境变量</h4><ul>
+<li>打开文件profile：<code>vim /etc/profile </code></li>
+<li>在profile文件中添加环境变量<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">JAVA_HOME</span>=/home/software/jdk1.8.0_65<br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">JRE_HOME</span>=/home/software/jdk1.8.0_65/jre<br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">CLASSPATH</span>=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH<br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$JAVA_HOME</span>/bin:$JRE_HOME/bin:$PATH<br></code></pre></td></tr></table></figure></li>
+<li>使环境变量生效：<code>source /etc/profile</code></li>
+<li>查看环境变量信息：<code>echo $PATH</code></li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年01月30日 11:33</p>
+        <p>原始链接： <a class="post-url" href="/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="linux常用命令">http://genpe.top/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></p>
+        <footer>
+            <a href="http://genpe.top">
+                <img src="/images/icon/logo.png" alt="Genpe">
+                Genpe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://genpe.top/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=《linux常用命令》 — Genpe&pic=http://genpe.topimages/icon/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://genpe.top/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=《linux常用命令》 — Genpe&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://genpe.top/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux常用命令》 — Genpe&url=http://genpe.top/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&via=http://genpe.top" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://genpe.top/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://genpe.top/2020/09/22/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/linux/" class="color1">linux</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB"><span class="post-toc-text">linux常用命令汇总</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1%E3%80%81linux%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="post-toc-text">1、linux系统基础操作命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2%E3%80%81tar%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6"><span class="post-toc-text">2、tar压缩和解压文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3%E3%80%81ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6apt%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4"><span class="post-toc-text">3、ubuntu安装软件apt工具命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4%E3%80%81ps%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81"><span class="post-toc-text">4、ps查看进程运行状态</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5%E3%80%81netstat%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%8A%B6%E6%80%81"><span class="post-toc-text">5、netstat查看网络连接状态</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6%E3%80%81%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="post-toc-text">6、防火墙操作命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%A7%E8%83%BD%E7%9B%91%E6%B5%8B"><span class="post-toc-text">7、服务器性能监测</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8%E3%80%81%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E6%93%8D%E4%BD%9C"><span class="post-toc-text">8、用户管理操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9%E3%80%81%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="post-toc-text">9、配置环境变量</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/10/12/java%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          redis常用命令
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/09/22/Linux/vim%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">vim命令汇总</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Blog搭建工具  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        使用主题 <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Genpe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://genpe.top",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="搜索">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="归档">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="标签">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IOS/">IOS</a><a class="category-link" href="/categories/JavaBase/">JavaBase</a><a class="category-link" href="/categories/JavaFrame/">JavaFrame</a><a class="category-link" href="/categories/JavaWeb/">JavaWeb</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/PHP/">PHP</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/">资料工具</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/JavaBase/" style="font-size: 15px;">JavaBase</a> <a href="/tags/JavaFrame/" style="font-size: 20px;">JavaFrame</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/NoSQL/" style="font-size: 11.67px;">NoSQL</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/dubbo/" style="font-size: 11.67px;">dubbo</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 13.33px;">http</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javaWeb/" style="font-size: 13.33px;">javaWeb</a> <a href="/tags/java%E5%AE%B9%E5%99%A8/" style="font-size: 10px;">java容器</a> <a href="/tags/java%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">java并发</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 11.67px;">linux</a> <a href="/tags/mybatis/" style="font-size: 16.67px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springBoot/" style="font-size: 11.67px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 18.33px;">springCloud</a> <a href="/tags/springMVC/" style="font-size: 15px;">springMVC</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/tags/%E8%B5%84%E6%96%99%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">资料工具</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="请输入关键字搜索..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
